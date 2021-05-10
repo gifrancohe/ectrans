@@ -6,6 +6,7 @@ use Yii;
 use app\models\Payroll;
 use app\models\PayrollSearch;
 use app\models\Driver;
+use app\models\Car;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
