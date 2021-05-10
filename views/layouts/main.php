@@ -43,9 +43,7 @@ AppAsset::register($this);
             ['label' => 'Conductor', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
-            ) : 
-            ['label' => 'Planillas', 'url' => ['/site/contact']],
-            (
+            ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
@@ -54,7 +52,8 @@ AppAsset::register($this);
                 )
                 . Html::endForm()
                 . '</li>'
-            )
+            ),
+            !Yii::$app->user->isGuest ? ['label' => 'Planilla', 'url' => ['/site/contact']],
         ],
     ]);
     NavBar::end();
