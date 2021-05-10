@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'driver_id')->dropDownList($drivers, ['prompt'=>'Seleccione un conductor'] );?>
 
-    <?= $form->field($model, 'car_id')->textInput() ?>
+    <?= $form->field($model, 'car_id')->dropDownList($cars, ['prompt'=>'Seleccione un vehiculo'] );?>
 
     <?= $form->field($model, 'km_initial')->textInput() ?>
 

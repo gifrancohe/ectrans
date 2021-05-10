@@ -70,6 +70,7 @@ class PayrollController extends Controller
     {
         $model = new Payroll();
         $drivers = ArrayHelper::map(Driver::find()->all(), 'iddriver', 'name');
+        $cars = ArrayHelper::map(Car::find()->all(), 'idcar', 'plaque');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'idpayroll' => $model->idpayroll, 'driver_id' => $model->driver_id, 'car_id' => $model->car_id]);
@@ -78,6 +79,7 @@ class PayrollController extends Controller
         return $this->render('create', [
             'model' => $model,
             'drivers' => $drivers,
+            'cars' => $cars,
         ]);
     }
 
