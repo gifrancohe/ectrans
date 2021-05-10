@@ -26,7 +26,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'voucher')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'type_pay')->textInput() ?>
+    <?= $form->field($model, 'type_pay')->dropDownList(['1' => 'Facturado', '2' => 'Efectivo', '3' => 'PCC'], ['prompt'=>'Seleccione el tipo de pago'] );?>
 
     <?= $form->field($model, 'value')->textInput() ?>
 
