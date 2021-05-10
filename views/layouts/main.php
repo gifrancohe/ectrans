@@ -52,8 +52,7 @@ AppAsset::register($this);
                 )
                 . Html::endForm()
                 . '</li>'
-            ),
-            !Yii::$app->user->isGuest ? ['label' => 'Planilla', 'url' => ['/site/contact']],
+            )
         ],
     ]);
     NavBar::end();
