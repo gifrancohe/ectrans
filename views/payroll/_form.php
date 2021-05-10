@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'driver_id')->textInput() ?>
+    <?= Html::activeDropDownList($model, 'driver_id',$drivers) ?>
 
     <?= $form->field($model, 'car_id')->textInput() ?>
 
