@@ -12,13 +12,18 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'driver_id')->dropDownList($drivers,['prompt'=>'Seleccione un conductor']); ?>
+    <div class="row">
+        <div class="col-md-6">
+            <?= $form->field($model, 'driver_id')->dropDownList($drivers,['prompt'=>'Seleccione un conductor']); ?>
 
-    <?= $form->field($model, 'car_id')->dropDownList($cars,['prompt'=>'Seleccione un vehiculo']); ?>
+            <?= $form->field($model, 'car_id')->dropDownList($cars,['prompt'=>'Seleccione un vehiculo']); ?>    
+        </div>
+        <div class="col-md-6">
+            <?= $form->field($model, 'km_initial')->textInput() ?>
 
-    <?= $form->field($model, 'km_initial')->textInput() ?>
-
-    <?= $form->field($model, 'km_final')->textInput() ?>
+            <?= $form->field($model, 'km_final')->textInput() ?>    
+        </div>
+    </div>
 
     <?= $form->field($model, 'from')->textInput(['maxlength' => true]) ?>
 
