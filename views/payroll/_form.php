@@ -15,25 +15,34 @@ use yii\widgets\ActiveForm;
     <div class="row">
         <div class="col-md-6">
             <?= $form->field($model, 'driver_id')->dropDownList($drivers,['prompt'=>'Seleccione un conductor']); ?>
-
-            <?= $form->field($model, 'car_id')->dropDownList($cars,['prompt'=>'Seleccione un vehiculo']); ?>    
+            <?= $form->field($model, 'km_initial')->textInput() ?>
         </div>
         <div class="col-md-6">
-            <?= $form->field($model, 'km_initial')->textInput() ?>
-
+            <?= $form->field($model, 'car_id')->dropDownList($cars,['prompt'=>'Seleccione un vehiculo']); ?>    
             <?= $form->field($model, 'km_final')->textInput() ?>    
         </div>
     </div>
 
-    <?= $form->field($model, 'from')->textInput(['maxlength' => true]) ?>
+    <div class="ro">
+        <div class="col-md-6">
+            <?= $form->field($model, 'from')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-md-6">
+            <?= $form->field($model, 'to')->textInput(['maxlength' => true]) ?>
+        </div>
+    </div>
 
-    <?= $form->field($model, 'hour')->textInput() ?>
-
-    <?= $form->field($model, 'to')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'type_pay')->textInput() ?>
-
-    <?= $form->field($model, 'value')->textInput() ?>
+    <div class="row">
+        <div class="col-md-4">
+            <?= $form->field($model, 'hour')->textInput() ?>    
+        </div>
+        <div class="col-md-4">
+            <?= $form->field($model, 'type_pay')->textInput() ?>    
+        </div>
+        <div class="col-md-4">
+            <?= $form->field($model, 'value')->textInput() ?>
+        </div>
+    </div>
 
     <?= $form->field($model, 'voucher')->textInput(['maxlength' => true]) ?>
 
