@@ -17,7 +17,7 @@ class DriverSearch extends Driver
     public function rules()
     {
         return [
-            [['iddriver', 'document_number'], 'integer'],
+            [['iddriver', 'document_number', 'type_driver'], 'integer'],
             [['name', 'last_name', 'cel', 'email', 'created_at', 'updated_at'], 'safe'],
         ];
     }
@@ -60,6 +60,7 @@ class DriverSearch extends Driver
         $query->andFilterWhere([
             'iddriver' => $this->iddriver,
             'document_number' => $this->document_number,
+            'type_driver' => $this->type_driver,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);

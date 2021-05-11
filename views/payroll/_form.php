@@ -12,9 +12,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'driver_id')->dropDownList($drivers, ['prompt'=>'Seleccione un conductor'] );?>
+    <?= $form->field($model, 'driver_id')->textInput() ?>
 
-    <?= $form->field($model, 'car_id')->dropDownList($cars, ['prompt'=>'Seleccione un vehiculo'] );?>
+    <?= $form->field($model, 'car_id')->textInput() ?>
 
     <?= $form->field($model, 'km_initial')->textInput() ?>
 
@@ -22,13 +22,25 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'from')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'hour')->textInput() ?>
+
     <?= $form->field($model, 'to')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'type_pay')->textInput() ?>
+
+    <?= $form->field($model, 'value')->textInput() ?>
 
     <?= $form->field($model, 'voucher')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'type_pay')->dropDownList(['1' => 'Facturado', '2' => 'Efectivo', '3' => 'PCC'], ['prompt'=>'Seleccione el tipo de pago'] );?>
+    <?= $form->field($model, 'parking_value')->textInput() ?>
 
-    <?= $form->field($model, 'value')->textInput() ?>
+    <?= $form->field($model, 'fuel_value')->textInput() ?>
+
+    <?= $form->field($model, 'others_value')->textInput() ?>
+
+    <?= $form->field($model, 'other_description')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'flypass_value')->textInput() ?>
 
     <?= $form->field($model, 'created_at')->textInput() ?>
 

@@ -30,13 +30,25 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'from') ?>
 
-    <?php // echo $form->field($model, 'to') ?>
+    <?php // echo $form->field($model, 'hour') ?>
 
-    <?php // echo $form->field($model, 'voucher') ?>
+    <?php // echo $form->field($model, 'to') ?>
 
     <?php // echo $form->field($model, 'type_pay') ?>
 
     <?php // echo $form->field($model, 'value') ?>
+
+    <?php // echo $form->field($model, 'voucher') ?>
+
+    <?php // echo $form->field($model, 'parking_value') ?>
+
+    <?php // echo $form->field($model, 'fuel_value') ?>
+
+    <?php // echo $form->field($model, 'others_value') ?>
+
+    <?php // echo $form->field($model, 'other_description') ?>
+
+    <?php // echo $form->field($model, 'flypass_value') ?>
 
     <?php // echo $form->field($model, 'created_at') ?>
 

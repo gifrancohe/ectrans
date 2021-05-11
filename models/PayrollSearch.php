@@ -17,8 +17,8 @@ class PayrollSearch extends Payroll
     public function rules()
     {
         return [
-            [['idpayroll', 'driver_id', 'car_id', 'km_initial', 'km_final', 'type_pay', 'value'], 'integer'],
-            [['from', 'to', 'voucher', 'created_at', 'updated_at'], 'safe'],
+            [['idpayroll', 'driver_id', 'car_id', 'km_initial', 'km_final', 'type_pay', 'value', 'parking_value', 'fuel_value', 'others_value', 'flypass_value'], 'integer'],
+            [['from', 'hour', 'to', 'voucher', 'other_description', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -63,15 +63,21 @@ class PayrollSearch extends Payroll
             'car_id' => $this->car_id,
             'km_initial' => $this->km_initial,
             'km_final' => $this->km_final,
+            'hour' => $this->hour,
             'type_pay' => $this->type_pay,
             'value' => $this->value,
+            'parking_value' => $this->parking_value,
+            'fuel_value' => $this->fuel_value,
+            'others_value' => $this->others_value,
+            'flypass_value' => $this->flypass_value,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
 
         $query->andFilterWhere(['like', 'from', $this->from])
             ->andFilterWhere(['like', 'to', $this->to])
-            ->andFilterWhere(['like', 'voucher', $this->voucher]);
+            ->andFilterWhere(['like', 'voucher', $this->voucher])
+            ->andFilterWhere(['like', 'other_description', $this->other_description]);
 
         return $dataProvider;
     }

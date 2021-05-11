@@ -11,6 +11,7 @@ use Yii;
  * @property string $name
  * @property string $last_name
  * @property int $document_number
+ * @property int $type_driver
  * @property string|null $cel
  * @property string|null $email
  * @property string|null $created_at
@@ -34,8 +35,8 @@ class Driver extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'last_name', 'document_number'], 'required'],
-            [['document_number'], 'integer'],
+            [['name', 'last_name', 'document_number', 'type_driver'], 'required'],
+            [['document_number', 'type_driver'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['name', 'last_name', 'cel'], 'string', 'max' => 45],
             [['email'], 'string', 'max' => 100],
@@ -52,6 +53,7 @@ class Driver extends \yii\db\ActiveRecord
             'name' => Yii::t('app', 'Name'),
             'last_name' => Yii::t('app', 'Last Name'),
             'document_number' => Yii::t('app', 'Document Number'),
+            'type_driver' => Yii::t('app', 'Type Driver'),
             'cel' => Yii::t('app', 'Cel'),
             'email' => Yii::t('app', 'Email'),
             'created_at' => Yii::t('app', 'Created At'),

@@ -18,6 +18,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'document_number')->textInput() ?>
 
+    <?= $form->field($model, 'type_driver')->textInput() ?>
+
     <?= $form->field($model, 'cel')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>

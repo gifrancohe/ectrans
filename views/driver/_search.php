@@ -26,7 +26,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'document_number') ?>
 
-    <?= $form->field($model, 'cel') ?>
+    <?= $form->field($model, 'type_driver') ?>
+
+    <?php // echo $form->field($model, 'cel') ?>
 
     <?php // echo $form->field($model, 'email') ?>
 

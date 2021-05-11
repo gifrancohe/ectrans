@@ -13,10 +13,16 @@ use Yii;
  * @property int $km_initial
  * @property int $km_final
  * @property string $from
+ * @property string $hour
  * @property string $to
- * @property string|null $voucher
  * @property int $type_pay
  * @property int $value
+ * @property string|null $voucher
+ * @property int|null $parking_value
+ * @property int|null $fuel_value
+ * @property int|null $others_value
+ * @property string|null $other_description
+ * @property int|null $flypass_value
  * @property string|null $created_at
  * @property string|null $updated_at
  *
@@ -39,11 +45,12 @@ class Payroll extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['driver_id', 'car_id', 'km_initial', 'km_final', 'from', 'to', 'type_pay', 'value'], 'required'],
-            [['driver_id', 'car_id', 'km_initial', 'km_final', 'type_pay', 'value'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['driver_id', 'car_id', 'km_initial', 'km_final', 'from', 'hour', 'to', 'type_pay', 'value'], 'required'],
+            [['driver_id', 'car_id', 'km_initial', 'km_final', 'type_pay', 'value', 'parking_value', 'fuel_value', 'others_value', 'flypass_value'], 'integer'],
+            [['hour', 'created_at', 'updated_at'], 'safe'],
             [['from'], 'string', 'max' => 150],
             [['to', 'voucher'], 'string', 'max' => 45],
+            [['other_description'], 'string', 'max' => 250],
             [['driver_id'], 'exist', 'skipOnError' => true, 'targetClass' => Driver::className(), 'targetAttribute' => ['driver_id' => 'iddriver']],
             [['car_id'], 'exist', 'skipOnError' => true, 'targetClass' => Car::className(), 'targetAttribute' => ['car_id' => 'idcar']],
         ];
@@ -61,10 +68,16 @@ class Payroll extends \yii\db\ActiveRecord
             'km_initial' => Yii::t('app', 'Km Initial'),
             'km_final' => Yii::t('app', 'Km Final'),
             'from' => Yii::t('app', 'From'),
+            'hour' => Yii::t('app', 'Hour'),
             'to' => Yii::t('app', 'To'),
-            'voucher' => Yii::t('app', 'Voucher'),
             'type_pay' => Yii::t('app', 'Type Pay'),
             'value' => Yii::t('app', 'Value'),
+            'voucher' => Yii::t('app', 'Voucher'),
+            'parking_value' => Yii::t('app', 'Parking Value'),
+            'fuel_value' => Yii::t('app', 'Fuel Value'),
+            'others_value' => Yii::t('app', 'Others Value'),
+            'other_description' => Yii::t('app', 'Other Description'),
+            'flypass_value' => Yii::t('app', 'Flypass Value'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];
