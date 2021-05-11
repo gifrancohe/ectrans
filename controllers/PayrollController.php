@@ -5,6 +5,9 @@ namespace app\controllers;
 use Yii;
 use app\models\Payroll;
 use app\models\PayrollSearch;
+use app\models\Driver;
+use app\models\Car;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -67,6 +70,8 @@ class PayrollController extends Controller
     public function actionCreate()
     {
         $model = new Payroll();
+        $drivers = ArrayHelper::map(Driver::find()->all(), 'iddriver', 'name');
+        $cars = ArrayHelper::map(Car::find()->all(), 'idcar', 'plaque');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'idpayroll' => $model->idpayroll, 'driver_id' => $model->driver_id, 'car_id' => $model->car_id]);
@@ -74,6 +79,8 @@ class PayrollController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'drivers' => $drivers,
+            'cars' => $cars,
         ]);
     }
 
