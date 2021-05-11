@@ -55,17 +55,27 @@ use yii\widgets\ActiveForm;
     </div>
 
     <div class="row">
-        <?= $form->field($model, 'parking_value')->textInput() ?>
-        <?= $form->field($model, 'fuel_value')->textInput() ?>
+        <div class="col-md-6">
+            <?= $form->field($model, 'parking_value')->textInput() ?>
+        </div>
+        <div class="col-md-6">
+            <?= $form->field($model, 'fuel_value')->textInput() ?>
+        </div>
     </div>
 
     <div class="row">
-        <?= $form->field($model, 'others_value')->textInput() ?>
-        <?= $form->field($model, 'other_description')->textInput(['maxlength' => true]) ?>
+        <div class="col-md-6">
+            <?= $form->field($model, 'others_value')->textInput() ?>
+        </div>
+        <div class="col-md-6">
+            <?= $form->field($model, 'other_description')->textInput(['maxlength' => true]) ?>
+        </div>
     </div>
 
     <div class="row">
-        <?= $form->field($model, 'flypass_value')->textInput() ?>
+        <div class="col-md-12">
+            <?= $form->field($model, 'flypass_value')->textInput() ?>
+        </div>
     </div>
 
     <div class="form-group">
