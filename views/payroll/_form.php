@@ -54,21 +54,19 @@ use yii\widgets\ActiveForm;
         </div>
     </div>
 
-    <?= $form->fieldSet('Gastos'); ?>
+    <div class="row">
         <?= $form->field($model, 'parking_value')->textInput() ?>
-
         <?= $form->field($model, 'fuel_value')->textInput() ?>
+    </div>
 
+    <div class="row">
         <?= $form->field($model, 'others_value')->textInput() ?>
-
         <?= $form->field($model, 'other_description')->textInput(['maxlength' => true]) ?>
+    </div>
 
+    <div class="row">
         <?= $form->field($model, 'flypass_value')->textInput() ?>
-
-        <?= $form->field($model, 'created_at')->textInput() ?>
-
-        <?= $form->field($model, 'updated_at')->textInput() ?>
-    <?= $form->fieldSetEnd();?>
+    </div>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
