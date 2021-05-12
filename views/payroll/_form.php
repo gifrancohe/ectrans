@@ -43,7 +43,7 @@ use kartik\widgets\TimePicker;
 
     <div class="row">
         <div class="col-md-3">
-            <?= $form->field($model, 'hour')->->widget(TimePicker::classname(), []); ?>    
+            <?= $form->field($model, 'hour')->widget(TimePicker::classname(), []); ?>    
         </div>
         <div class="col-md-3">
             <?= $form->field($model, 'type_pay')->dropDownList(['1' => 'Facturado', '2' => 'Efectivo'],['prompt'=>'Seleccione el tipo de pago']); ?>
