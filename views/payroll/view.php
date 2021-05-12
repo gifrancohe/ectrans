@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'hour',
             'to',
             [
-                'format' => 'boolean',
+                'format' => 'raw',
                 'attribute' => 'type_pay',
                 'filter' => [1=>'Facturado',2=>'Efectivo'],
             ],
