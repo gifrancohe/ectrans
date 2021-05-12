@@ -23,25 +23,25 @@ use yii\widgets\ActiveForm;
 
     <div class="row">
         <div class="col-md-6">
-            <?= $form->field($model, 'km_initial')->textInput() ?>
+            <?= $form->field($model, 'km_initial')->textInput(['placeholder' => "Ingrese el Kilometraje inicial"])) ?>
         </div>
         <div class="col-md-6">
-            <?= $form->field($model, 'km_final')->textInput() ?>    
+            <?= $form->field($model, 'km_final')->textInput(['placeholder' => "Ingrese el Kilometraje final"]) ?>    
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-6">
-            <?= $form->field($model, 'from')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'from')->textInput(['maxlength' => true, 'placeholder' => "Ingrese el origen del viaje"]) ?>
         </div>
         <div class="col-md-6">
-            <?= $form->field($model, 'to')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'to')->textInput(['maxlength' => true, 'placeholder' => "Ingrese el destino del viaje"]) ?>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-3">
-            <?= $form->field($model, 'hour')->textInput() ?>    
+            <?= $form->field($model, 'hour')->textInput(['placeholder' => "Hora del viaje"]) ?>    
         </div>
         <div class="col-md-3">
             <?= $form->field($model, 'type_pay')->textInput() ?>    
@@ -50,25 +50,25 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'voucher')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-md-3">
-            <?= $form->field($model, 'value')->textInput() ?>
+            <?= $form->field($model, 'value')->textInput(['placeholder' => "Ingrese el valor del viaje"]) ?>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-6">
-            <?= $form->field($model, 'parking_value')->textInput() ?>
+            <?= $form->field($model, 'parking_value')->textInput(['placeholder' => "Ingrese los gastos por parqueadero"]) ?>
         </div>
         <div class="col-md-6">
-            <?= $form->field($model, 'fuel_value')->textInput() ?>
+            <?= $form->field($model, 'fuel_value')->textInput(['placeholder' => "Ingrese los gastos por combustible"]) ?>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-6">
-            <?= $form->field($model, 'others_value')->textInput() ?>
+            <?= $form->field($model, 'others_value')->textInput(['placeholder' => "Ingrese el valor de otros gastos"]) ?>
         </div>
         <div class="col-md-6">
-            <?= $form->field($model, 'other_description')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'other_description')->textInput(['maxlength' => true, 'placeholder' => "Haga una pequeña descripción de los otros gastos"]) ?>
         </div>
     </div>
 
