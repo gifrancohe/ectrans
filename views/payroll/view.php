@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'format' => 'raw',
                 'attribute' => 'value',
-                'value' => Yii::app()->numberFormatter->formatCurrency($model->value,Yii::app()->params->currency),
+                'value' => Yii::$app->formatter->asCurrency($model->value),
             ],
             'voucher',
             'parking_value',
