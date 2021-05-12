@@ -34,11 +34,15 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'format' => 'raw',
                 'attribute' => 'km_initial',
-                'value' => Yii::$app->formatter->asNumber($model->others_value),
+                'value' => Yii::$app->formatter->asDecimal($model->km_initial),
             ],
             'km_final',
             'from',
-            'hour',
+            [
+                'format' => 'raw',
+                'attribute' => 'hour',
+                'value' => Yii::$app->formatter->asTime($model->hour),
+            ],
             'to',
             [
                 'format' => 'raw',
