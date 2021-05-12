@@ -50,10 +50,10 @@ class Driver extends \yii\db\ActiveRecord
     {
         return [
             'iddriver' => Yii::t('app', 'Iddriver'),
-            'name' => Yii::t('app', 'Name'),
-            'last_name' => Yii::t('app', 'Last Name'),
-            'document_number' => Yii::t('app', 'Document Number'),
-            'type_driver' => Yii::t('app', 'Type Driver'),
+            'name' => Yii::t('app', 'Nombre'),
+            'last_name' => Yii::t('app', 'Apellido'),
+            'document_number' => Yii::t('app', 'Documento identificación'),
+            'type_driver' => Yii::t('app', 'Tipo de conductor'),
             'cel' => Yii::t('app', 'Cel'),
             'email' => Yii::t('app', 'Email'),
             'created_at' => Yii::t('app', 'Created At'),

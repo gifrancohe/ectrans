@@ -61,17 +61,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'voucher',
             [
                 'format' => 'raw',
-                'attribute' => 'value',
+                'attribute' => 'Gasto parqueadero',
                 'value' => Yii::$app->formatter->asCurrency($model->parking_value),
             ],
             [
                 'format' => 'raw',
-                'attribute' => 'value',
+                'attribute' => 'Gasto combustible',
                 'value' => Yii::$app->formatter->asCurrency($model->fuel_value),
             ],
             [
                 'format' => 'raw',
-                'attribute' => 'value',
+                'attribute' => 'Otros gastos',
                 'value' => Yii::$app->formatter->asCurrency($model->others_value),
             ],
             'other_description',

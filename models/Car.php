@@ -46,9 +46,9 @@ class Car extends \yii\db\ActiveRecord
     {
         return [
             'idcar' => Yii::t('app', 'Idcar'),
-            'plaque' => Yii::t('app', 'Plaque'),
-            'colour' => Yii::t('app', 'Colour'),
-            'brand' => Yii::t('app', 'Brand'),
+            'plaque' => Yii::t('app', 'Placa'),
+            'colour' => Yii::t('app', 'Color'),
+            'brand' => Yii::t('app', 'Marca'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];
