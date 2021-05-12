@@ -23,10 +23,10 @@ use yii\widgets\ActiveForm;
 
     <div class="row">
         <div class="col-md-6">
-            <?= $form->field($model, 'km_initial')->textInput(['placeholder' => "Ingrese el Kilometraje inicial"]) ?>
+            <?= $form->field($model, 'km_initial')->textInput(['placeholder' => "Ingrese el kilometraje inicial"]) ?>
         </div>
         <div class="col-md-6">
-            <?= $form->field($model, 'km_final')->textInput(['placeholder' => "Ingrese el Kilometraje final"]) ?>    
+            <?= $form->field($model, 'km_final')->textInput(['placeholder' => "Ingrese el kilometraje final"]) ?>    
         </div>
     </div>
 
