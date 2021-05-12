@@ -52,8 +52,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'value',
                 'value' => Yii::$app->formatter->asCurrency($model->parking_value),
             ],
-            'fuel_value',
-            'others_value',
+            [
+                'format' => 'raw',
+                'attribute' => 'value',
+                'value' => Yii::$app->formatter->asCurrency($model->fuel_value),
+            ],
+            [
+                'format' => 'raw',
+                'attribute' => 'value',
+                'value' => Yii::$app->formatter->asCurrency($model->others_value),
+            ],
             'other_description',
             'flypass_value',
             'created_at',
