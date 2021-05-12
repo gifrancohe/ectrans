@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use kartikorm\ActiveForm;
 use kartik\widgets\TimePicker;
 
 /* @var $this yii\web\View */
