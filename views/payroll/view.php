@@ -41,7 +41,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'type_pay',
                 'value' => $model->type_pay == 1 ? 'Facturado' : 'Efectivo',
             ],
-            'value',
+            [
+                'format' => 'raw',
+                'attribute' => 'value',
+                'value' => Yii::app()->numberFormatter->formatCurrency($model->value,Yii::app()->params->currency),
+            ],
             'voucher',
             'parking_value',
             'fuel_value',

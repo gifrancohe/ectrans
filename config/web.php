@@ -44,6 +44,10 @@ $config = [
             ],
         ],
         'db' => $db,
+        'formatter' => [
+            'thousandSeparator' => '.',
+            'currencyCode' => '$',
+        ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
