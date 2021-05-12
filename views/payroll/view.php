@@ -36,7 +36,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'from',
             'hour',
             'to',
-            'type_pay',
+            [
+                'format' => 'boolean',
+                'attribute' => 'type_pay',
+                'filter' => [1=>'Facturado',2=>'Efectivo'],
+            ]
             'value',
             'voucher',
             'parking_value',
