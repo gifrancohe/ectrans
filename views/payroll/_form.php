@@ -44,7 +44,7 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'hour')->textInput(['placeholder' => "Hora del viaje"]) ?>    
         </div>
         <div class="col-md-3">
-            <?= $form->field($model, 'type_pay')->textInput() ?>    
+            <?= $form->field($model, 'type_pay')->dropDownList(['1' => 'Facturado', '2' => 'Efectivo'],['prompt'=>'Seleccione el tipo de pago']); ?>
         </div>
         <div class="col-md-3">
             <?= $form->field($model, 'voucher')->textInput(['maxlength' => true]) ?>
