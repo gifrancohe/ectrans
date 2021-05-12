@@ -31,7 +31,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'driver.name',
             'car.plaque',
-            'km_initial',
+            [
+                'format' => 'raw',
+                'attribute' => 'km_initial',
+                'value' => Yii::$app->formatter->asNumber($model->others_value),
+            ],
             'km_final',
             'from',
             'hour',
