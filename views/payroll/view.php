@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'format' => 'raw',
                 'attribute' => 'type_pay',
-                'filter' => [1=>'Facturado',2=>'Efectivo'],
+                'value' => $model->type_pay == 1 ? 'Facturado' : 'Efectivo',
             ],
             'value',
             'voucher',
