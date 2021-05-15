@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Payroll */
 
-$this->title = Yii::t('app', 'Create Payroll');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Payrolls'), 'url' => ['index']];
+$this->title = Yii::t('app', 'Crear Planilla');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Planillas'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="payroll-create">
