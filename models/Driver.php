@@ -50,16 +50,16 @@ class Driver extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'iddriver' => Yii::t('app', 'Iddriver'),
-            'name' => Yii::t('app', 'Name'),
-            'last_name' => Yii::t('app', 'Last Name'),
-            'document_number' => Yii::t('app', 'Document Number'),
-            'type_driver' => Yii::t('app', 'Type Driver'),
-            'status' => Yii::t('app', 'Status'),
-            'cel' => Yii::t('app', 'Cel'),
+            'iddriver' => Yii::t('app', 'Id Conductor'),
+            'name' => Yii::t('app', 'Nombre'),
+            'last_name' => Yii::t('app', 'Apellido'),
+            'document_number' => Yii::t('app', 'Documento de indentificación'),
+            'type_driver' => Yii::t('app', 'Tipo de conductor'),
+            'status' => Yii::t('app', 'Estado'),
+            'cel' => Yii::t('app', 'Celular'),
             'email' => Yii::t('app', 'Email'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'created_at' => Yii::t('app', 'Creado en'),
+            'updated_at' => Yii::t('app', 'Actualizado en'),
         ];
     }
 

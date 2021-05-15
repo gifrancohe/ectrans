@@ -47,13 +47,13 @@ class Car extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idcar' => Yii::t('app', 'Idcar'),
-            'plaque' => Yii::t('app', 'Plaque'),
-            'status' => Yii::t('app', 'Status'),
-            'colour' => Yii::t('app', 'Colour'),
-            'brand' => Yii::t('app', 'Brand'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'idcar' => Yii::t('app', 'Id Auto'),
+            'plaque' => Yii::t('app', 'Placa'),
+            'status' => Yii::t('app', 'Estado'),
+            'colour' => Yii::t('app', 'Color'),
+            'brand' => Yii::t('app', 'Marca'),
+            'created_at' => Yii::t('app', 'Creado en'),
+            'updated_at' => Yii::t('app', 'Actualizado en'),
         ];
     }
 
