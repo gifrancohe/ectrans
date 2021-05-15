@@ -14,6 +14,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'plaque')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'status')->textInput() ?>
+
     <?= $form->field($model, 'colour')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'brand')->textInput(['maxlength' => true]) ?>

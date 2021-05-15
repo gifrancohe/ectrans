@@ -26,8 +26,8 @@ use Yii;
  * @property string|null $created_at
  * @property string|null $updated_at
  *
- * @property Driver $driver
  * @property Car $car
+ * @property Driver $driver
  */
 class Payroll extends \yii\db\ActiveRecord
 {
@@ -51,8 +51,8 @@ class Payroll extends \yii\db\ActiveRecord
             [['from'], 'string', 'max' => 150],
             [['to', 'voucher'], 'string', 'max' => 45],
             [['other_description'], 'string', 'max' => 250],
-            [['driver_id'], 'exist', 'skipOnError' => true, 'targetClass' => Driver::className(), 'targetAttribute' => ['driver_id' => 'iddriver']],
             [['car_id'], 'exist', 'skipOnError' => true, 'targetClass' => Car::className(), 'targetAttribute' => ['car_id' => 'idcar']],
+            [['driver_id'], 'exist', 'skipOnError' => true, 'targetClass' => Driver::className(), 'targetAttribute' => ['driver_id' => 'iddriver']],
         ];
     }
 
@@ -63,34 +63,24 @@ class Payroll extends \yii\db\ActiveRecord
     {
         return [
             'idpayroll' => Yii::t('app', 'Idpayroll'),
-            'driver_id' => Yii::t('app', 'Conductor'),
-            'car_id' => Yii::t('app', 'Placa'),
-            'km_initial' => Yii::t('app', 'Km Iniciales'),
-            'km_final' => Yii::t('app', 'Km Finales'),
-            'from' => Yii::t('app', 'Desde'),
-            'to' => Yii::t('app', 'Hasta'),
-            'hour' => Yii::t('app', 'Hora'),
-            'type_pay' => Yii::t('app', 'Tipo de pago'),
-            'value' => Yii::t('app', 'Valor'),
+            'driver_id' => Yii::t('app', 'Driver ID'),
+            'car_id' => Yii::t('app', 'Car ID'),
+            'km_initial' => Yii::t('app', 'Km Initial'),
+            'km_final' => Yii::t('app', 'Km Final'),
+            'from' => Yii::t('app', 'From'),
+            'hour' => Yii::t('app', 'Hour'),
+            'to' => Yii::t('app', 'To'),
+            'type_pay' => Yii::t('app', 'Type Pay'),
+            'value' => Yii::t('app', 'Value'),
             'voucher' => Yii::t('app', 'Voucher'),
-            'parking_value' => Yii::t('app', 'Gasto parqueadero'),
-            'fuel_value' => Yii::t('app', 'Gasto combustible'),
-            'others_value' => Yii::t('app', 'Otros gastos'),
-            'other_description' => Yii::t('app', 'Descripción otros'),
-            'flypass_value' => Yii::t('app', 'Flypass'),
-            'created_at' => Yii::t('app', 'Fecha Creación'),
-            'updated_at' => Yii::t('app', 'Fecha Actualización'),
+            'parking_value' => Yii::t('app', 'Parking Value'),
+            'fuel_value' => Yii::t('app', 'Fuel Value'),
+            'others_value' => Yii::t('app', 'Others Value'),
+            'other_description' => Yii::t('app', 'Other Description'),
+            'flypass_value' => Yii::t('app', 'Flypass Value'),
+            'created_at' => Yii::t('app', 'Created At'),
+            'updated_at' => Yii::t('app', 'Updated At'),
         ];
-    }
-
-    /**
-     * Gets query for [[Driver]].
-     *
-     * @return \yii\db\ActiveQuery|DriverQuery
-     */
-    public function getDriver()
-    {
-        return $this->hasOne(Driver::className(), ['iddriver' => 'driver_id']);
     }
 
     /**
@@ -101,6 +91,16 @@ class Payroll extends \yii\db\ActiveRecord
     public function getCar()
     {
         return $this->hasOne(Car::className(), ['idcar' => 'car_id']);
+    }
+
+    /**
+     * Gets query for [[Driver]].
+     *
+     * @return \yii\db\ActiveQuery|DriverQuery
+     */
+    public function getDriver()
+    {
+        return $this->hasOne(Driver::className(), ['iddriver' => 'driver_id']);
     }
 
     /**

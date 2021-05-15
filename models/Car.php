@@ -9,6 +9,7 @@ use Yii;
  *
  * @property int $idcar
  * @property string $plaque
+ * @property int $status
  * @property string|null $colour
  * @property string|null $brand
  * @property string|null $created_at
@@ -33,6 +34,7 @@ class Car extends \yii\db\ActiveRecord
     {
         return [
             [['plaque'], 'required'],
+            [['status'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['plaque', 'colour'], 'string', 'max' => 45],
             [['brand'], 'string', 'max' => 100],
@@ -46,9 +48,10 @@ class Car extends \yii\db\ActiveRecord
     {
         return [
             'idcar' => Yii::t('app', 'Idcar'),
-            'plaque' => Yii::t('app', 'Placa'),
-            'colour' => Yii::t('app', 'Color'),
-            'brand' => Yii::t('app', 'Marca'),
+            'plaque' => Yii::t('app', 'Plaque'),
+            'status' => Yii::t('app', 'Status'),
+            'colour' => Yii::t('app', 'Colour'),
+            'brand' => Yii::t('app', 'Brand'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];

@@ -34,6 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'last_name',
             'document_number',
             'type_driver',
+            'status',
             'cel',
             'email:email',
             'created_at',

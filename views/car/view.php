@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'idcar',
             'plaque',
+            'status',
             'colour',
             'brand',
             'created_at',

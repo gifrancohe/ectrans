@@ -17,7 +17,7 @@ class CarSearch extends Car
     public function rules()
     {
         return [
-            [['idcar'], 'integer'],
+            [['idcar', 'status'], 'integer'],
             [['plaque', 'colour', 'brand', 'created_at', 'updated_at'], 'safe'],
         ];
     }
@@ -59,6 +59,7 @@ class CarSearch extends Car
         // grid filtering conditions
         $query->andFilterWhere([
             'idcar' => $this->idcar,
+            'status' => $this->status,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);

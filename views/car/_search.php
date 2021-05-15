@@ -22,11 +22,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'plaque') ?>
 
+    <?= $form->field($model, 'status') ?>
+
     <?= $form->field($model, 'colour') ?>
 
     <?= $form->field($model, 'brand') ?>
 
-    <?= $form->field($model, 'created_at') ?>
+    <?php // echo $form->field($model, 'created_at') ?>
 
     <?php // echo $form->field($model, 'updated_at') ?>
 

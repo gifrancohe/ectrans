@@ -29,9 +29,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'idcar',
             'plaque',
+            'status',
             'colour',
             'brand',
-            'created_at',
+            //'created_at',
             //'updated_at',
 
             ['class' => 'yii\grid\ActionColumn'],

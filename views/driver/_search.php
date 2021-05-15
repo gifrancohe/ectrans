@@ -28,6 +28,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'type_driver') ?>
 
+    <?php // echo $form->field($model, 'status') ?>
+
     <?php // echo $form->field($model, 'cel') ?>
 
     <?php // echo $form->field($model, 'email') ?>
