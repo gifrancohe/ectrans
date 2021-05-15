@@ -11,6 +11,8 @@ $this->title = 'EC Transportes';
 
         <p class="lead">Administración de viajes y conductores.</p>
 
+        <p><a class="btn btn-lg btn-success" target="_blank" href="http://ec2-18-188-114-164.us-east-2.compute.amazonaws.com/index.php?r=payroll%2Fcreate">Crear planilla</a></p>
+
         <p><a class="btn btn-lg btn-success" target="_blank" href="https://ectransportes.com/">Sitio Web</a></p>
     </div>
 
