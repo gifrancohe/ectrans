@@ -18,17 +18,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'document_number')->textInput() ?>
 
-    <?= $form->field($model, 'type_driver')->textInput() ?>
+    <?= $form->field($model, 'type_driver')->dropDownList(['1' => 'Propio', '2' => 'Tercero'],['prompt'=>'Seleccione el tipo de conductor']); ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?= $form->field($model, 'status')->dropDownList(['1' => 'Activo', '0' => 'Inactivo']); ?>
 
     <?= $form->field($model, 'cel')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
+    <?= $form->field($model, 'created_at')->hiddenInput(['value'=> date('Y-m-d H:i:s')])->label(false); ?>
 
-    <?= $form->field($model, 'updated_at')->textInput() ?>
+    <?= $form->field($model, 'updated_at')->hiddenInput(['value'=> date('Y-m-d H:i:s')])->label(false); ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Guardar'), ['class' => 'btn btn-success']) ?>
