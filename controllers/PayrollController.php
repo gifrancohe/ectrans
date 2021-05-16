@@ -175,8 +175,14 @@ class PayrollController extends Controller
                     ->where(['between', 'created_at', $date_from, $date_to])
                     ->where(['driver_id' => $id_driver])
                     ->all();
-
-                    var_dump($payrolls);
+                    
+                    foreach($payrolls as $payroll) {
+                        echo $payroll->driver->name . "<br>";
+                        echo $payroll->car->plaque . "<br>";
+                        echo $payroll->from . "<br>";
+                        echo $payroll->to . "<br>";
+                    }
+                    
                     exit;
                 }
 
