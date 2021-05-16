@@ -173,7 +173,6 @@ class PayrollController extends Controller
                 if (!empty($date_to) && !empty($id_driver)) {
                     $payrolls = Payroll::find()
                     ->where(['between', 'created_at', $date_from, $date_to])
-                    ->where(['driver_id' => $id_driver])
                     ->all();
                     
                     foreach($payrolls as $payroll) {
