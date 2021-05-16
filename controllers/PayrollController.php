@@ -239,6 +239,7 @@ class PayrollController extends Controller
                     }
                     fclose($archivo_salida);
                     Yii::$app->session->setFlash('success', "Reporte generado correctamente.");    
+                    return $this->redirect(['index']);
                 } else {
                     Yii::$app->session->setFlash('error', "No se encontro información con los filtros aplicados.");    
                 }
