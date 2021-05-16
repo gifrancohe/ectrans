@@ -18,16 +18,20 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'trade_name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'customer_type')->textInput() ?>
+    <?= $form->field($model, 'customer_type')->dropDownList(['1' => 'Cliente', '2' => 'Otro'],['prompt'=>'Seleccione el tipo de cliente']); ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?= $form->field($model, 'status')->dropDownList(['1' => 'Activo', '0' => 'Inactivo']); ?>
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
+    <?php if($model->isNewRecord): ?>
 
-    <?= $form->field($model, 'updated_at')->textInput() ?>
+        <?= $form->field($model, 'created_at')->hiddenInput(['value'=> date('Y-m-d H:i:s')])->label(false); ?>
+
+        <?= $form->field($model, 'updated_at')->hiddenInput(['value'=> date('Y-m-d H:i:s')])->label(false); ?>
+    
+    <?php endif; ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Guardar'), ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

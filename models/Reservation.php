@@ -52,17 +52,17 @@ class Reservation extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idreservation' => Yii::t('app', 'Idreservation'),
-            'customer_id' => Yii::t('app', 'Customer ID'),
-            'from' => Yii::t('app', 'From'),
-            'to' => Yii::t('app', 'To'),
-            'reservation_date' => Yii::t('app', 'Reservation Date'),
-            'reservation_hour' => Yii::t('app', 'Reservation Hour'),
-            'type_pay' => Yii::t('app', 'Type Pay'),
-            'reservation_status' => Yii::t('app', 'Reservation Status'),
+            'idreservation' => Yii::t('app', 'Id Reservación'),
+            'customer_id' => Yii::t('app', 'Cliente'),
+            'from' => Yii::t('app', 'Desde'),
+            'to' => Yii::t('app', 'Hasta'),
+            'reservation_date' => Yii::t('app', 'Fecha reservación'),
+            'reservation_hour' => Yii::t('app', 'Hora reservación'),
+            'type_pay' => Yii::t('app', 'Tipo de pago'),
+            'reservation_status' => Yii::t('app', 'Estado'),
             'voucher' => Yii::t('app', 'Voucher'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'created_at' => Yii::t('app', 'Creado en'),
+            'updated_at' => Yii::t('app', 'Actualizado en'),
         ];
     }
 

@@ -5,12 +5,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Customer */
 
-$this->title = Yii::t('app', 'Update Customer: {name}', [
-    'name' => $model->idcustomer,
+$this->title = Yii::t('app', 'Actualizar Cliente: {name}', [
+    'name' => $model->trade_name,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Customers'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Clientes'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->idcustomer, 'url' => ['view', 'id' => $model->idcustomer]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = Yii::t('app', 'Actualizar');
 ?>
 <div class="customer-update">
 

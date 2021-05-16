@@ -44,7 +44,15 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'format' => 'raw',
                 'attribute' => 'type_pay',
-                'value' => $model->type_pay == 1 ? 'Facturado' : 'Efectivo',
+                'value' => function ($model) {
+                    if ($model->type_pay == 1) {
+                        return 'Efectivo';
+                    }elseif ($model->type_pay == 2) {
+                        return 'Voucher';
+                    }else {
+                        return 'Cuenta x Cobrar';
+                    }
+                }
             ],
             [
                 'format' => 'raw',

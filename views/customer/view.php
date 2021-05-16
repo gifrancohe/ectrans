@@ -6,8 +6,8 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Customer */
 
-$this->title = $model->idcustomer;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Customers'), 'url' => ['index']];
+$this->title = $model->trade_name;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Clientes'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -16,14 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->idcustomer], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->idcustomer], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
-                'method' => 'post',
-            ],
-        ]) ?>
+        <?= Html::a(Yii::t('app', 'Actualizar'), ['update', 'id' => $model->idcustomer], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <?= DetailView::widget([
@@ -33,10 +26,30 @@ $this->params['breadcrumbs'][] = $this->title;
             'identification',
             'outsider_customer_name',
             'trade_name',
-            'customer_type',
-            'status',
-            'created_at',
-            'updated_at',
+            [
+                'format' => 'raw',
+                'attribute' => 'customer_type',
+                'value' => $model->customer_type == 1 ? 'Cliente' : 'Otro',
+            ],
+            [
+                'format' => 'raw',
+                'attribute' => 'status',
+                'value' => $model->status == 1 ? 'Activo' : 'Inactivo',
+            ],
+            [
+                'format' => 'raw',
+                'attribute' => 'created_at',
+                'value' => function($model) {
+                    return date('Y-m-d H:i:s', strtotime('-5 hour', strtotime($model->created_at)));
+                }
+            ],
+            [
+                'format' => 'raw',
+                'attribute' => 'updated_at',
+                'value' => function($model) {
+                    return date('Y-m-d H:i:s', strtotime('-5 hour', strtotime($model->updated_at)));
+                }
+            ],
         ],
     ]) ?>
 
