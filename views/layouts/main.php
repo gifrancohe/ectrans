@@ -35,27 +35,24 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+    $menuItems = [
+        ['label' => 'Inicio', 'url' => ['/site/index']],
+    ];
+    if (Yii::$app->user->isGuest) {
+        $menuItems[] = ['label' => 'Iniciar sessión', 'url' => ['/site/login']];
+    } else {
+        $menuItems[] = ['label' => 'Planillas', 'url' => ['/payroll/index']],
+        $menuItems[] = ['label' => 'Conductores', 'url' => ['/driver/index']],
+        $menuItems[] = ['label' => 'Automoviles', 'url' => ['/car/index']],
+        $menuItems[] = [
+            'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+            'url' => ['/site/logout'],
+            'linkOptions' => ['data-method' => 'post']
+        ];
+    } 
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Inicio', 'url' => ['/site/index']],
-            !Yii::$app->user->isGuest ? (
-            ['label' => 'Planillas', 'url' => ['/payroll/create']],
-            ['label' => 'Conductores', 'url' => ['/driver/index']],
-            ['label' => 'Autos', 'url' => ['/car/index']],),
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
+        'items' => $menuItems,
     ]);
     NavBar::end();
     ?>
