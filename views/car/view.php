@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Car */
 
-$this->title = $model->idcar;
+$this->title = $model->plaque;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Automoviles'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -31,7 +31,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'colour',
             'brand',
-            'created_at',
             [
                 'format' => 'raw',
                 'attribute' => 'created_at',
@@ -39,7 +38,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     return date('Y-m-d H:i:s', strtotime('-5 hour', strtotime($model->created_at)));
                 }
             ],
-            'updated_at',
+            [
+                'format' => 'raw',
+                'attribute' => 'updated_at',
+                'value' => function($model) {
+                    return date('Y-m-d H:i:s', strtotime('-5 hour', strtotime($model->updated_at)));
+                }
+            ],
         ],
     ]) ?>
 
