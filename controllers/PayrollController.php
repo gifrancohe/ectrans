@@ -151,4 +151,29 @@ class PayrollController extends Controller
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
+
+    /**
+     * Function to download payroll of drivers between two dates
+     * @param date date_from
+     * @param date date_to
+     */
+    public function actionDownload()
+    {
+        $drivers = ArrayHelper::map(Driver::find()->select(['iddriver','name','last_name'])->where(['status' => 1])->all(), 'iddriver', function($data) {
+            return $data['name'] . ' ' . $data['last_name'];
+        });
+
+        if (Yii::$app->request->post()) {
+            $data = Yii::$app->request->post();
+            var_dump($data);
+            exit;
+            $payrolls = Payroll::find()
+            ->where(['between', 'date', "2014-12-31", "2015-02-31" ])->all();
+            return $this->redirect(['view', 'idpayroll' => $model->idpayroll, 'driver_id' => $model->driver_id, 'car_id' => $model->car_id]);
+        }
+
+        return $this->render('download', [
+            'drivers' => $drivers
+        ]);
+    }
 }
