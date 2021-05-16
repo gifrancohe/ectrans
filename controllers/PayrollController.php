@@ -177,6 +177,7 @@ class PayrollController extends Controller
                     ->all();
                     
                     foreach($payrolls as $payroll) {
+                        echo $payroll->idpayroll . "<br>";
                         echo $payroll->driver->name . "<br>";
                         echo $payroll->car->plaque . "<br>";
                         echo $payroll->from . "<br>";
