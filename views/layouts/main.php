@@ -44,6 +44,8 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Planillas', 'url' => ['/payroll/index']];
         $menuItems[] = ['label' => 'Conductores', 'url' => ['/driver/index']];
         $menuItems[] = ['label' => 'Automoviles', 'url' => ['/car/index']];
+        $menuItems[] = ['label' => 'Clientes', 'url' => ['/customer/index']];
+        $menuItems[] = ['label' => 'Reservaciones', 'url' => ['/reservation/index']];
         $menuItems[] = [
             'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
             'url' => ['/site/logout'],
