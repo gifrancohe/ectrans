@@ -26,10 +26,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'idcar',
             'plaque',
-            'status',
+            [
+                'format' => 'raw',
+                'attribute' => 'status',
+                'value' => $model->status == 1 ? 'Activo' : 'Inactivo',
+            ],
             'colour',
             'brand',
             //'created_at',
