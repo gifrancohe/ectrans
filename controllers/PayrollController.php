@@ -166,26 +166,81 @@ class PayrollController extends Controller
         if (Yii::$app->request->post()) {
             $data = Yii::$app->request->post();
             if (!empty($data['date_from'])) {
-                $date_from = $data['date_from'];
+                
+                $date_from = $data['date_from'] . ' 00:00:00';
                 $date_to = $data['date_to'];
                 $id_driver = $data['id_driver'];
                 
                 if (!empty($date_to) && !empty($id_driver)) {
+                   
+                    $date_to = $date_to . ' 23:59:59';
+                    
                     $payrolls = Payroll::find()
                     ->where(['between', 'created_at', $date_from, $date_to])
                     ->andWhere(['driver_id' => $id_driver])
                     ->all();
+                
+                } elseif(!empty($date_to)) {
                     
-                    foreach($payrolls as $payroll) {
-                        echo $payroll->idpayroll . "<br>";
-                        echo $payroll->driver->name . "<br>";
-                        echo $payroll->car->plaque . "<br>";
-                        echo $payroll->from . "<br>";
-                        echo $payroll->to . "<br>";
-                        echo $payroll->created_at . "<br>";
+                    $date_to = $date_to . ' 23:59:59';
+                    
+                    $payrolls = Payroll::find()
+                    ->where(['between', 'created_at', $date_from, $date_to])
+                    ->all();
+                } elseif (!empty($id_driver)) {
+                    
+                    $payrolls = Payroll::find()
+                    ->where(['>=', 'created_at', $date_from])
+                    ->andWhere(['driver_id' => $id_driver])
+                    ->all();
+                } else {
+                    $payrolls = Payroll::find()
+                    ->where(['>=', 'created_at', $date_from])
+                    ->all();
+                }
+
+                header('Content-Type: text/csv; charset=utf-8');
+                header('Content-Disposition: attachment; filename=planillas-' . date('Y-m-d-His', time() - 18000) . '.csv');
+
+                $archivo_salida = fopen('php://output', 'w');
+
+                if (!empty($payrolls)) {
+                    $campos = ['Id Planilla', 'Conductor', 'Placa', 'Km Inicial', 'Km Final', 'Desde' , 'Hasta', 'Hora', 'Tipo de pago', 'Valor', 'Voucher', 'Gasto Parq', 'Gasto gas', 'Otros gastos', 'Descripcíon otros', 'Creado en', 'Actualizado en'];
+                    fputcsv($archivo_salida, $campos, ';');
+                    foreach ($payrolls as $payroll) {
+                        if ($payroll->type_pay == 1) {
+                            $type_pay = 'Efectivo';
+                        } elseif ($payroll->type_pay == 2) {
+                            $type_pay = 'Voucher';
+                        } else {
+                            $type_pay = 'Cuenta x Cobrar';
+                        }
+                        $resultado = [
+                            'Id Planilla' => $payroll->idpayroll,
+                            'Conductor' => $payroll->driver->name . ' ' . $payroll->driver->last_name, 
+                            'Placa' => $payroll->car->plaque,
+                            'Km Inicial' => $payroll->km_initial,
+                            'Km Final' => $payroll->km_final,
+                            'Desde'  => $payroll->from,
+                            'Hasta' => $payroll->to,
+                            'Hora' => $payroll->hour,
+                            'Tipo de pago' => $type_pay,
+                            'Valor' => $payroll->value,
+                            'Voucher' => $payroll->voucher,
+                            'Gasto Parq' => $payroll->parking_value,
+                            'Gasto gas' => $payroll->fuel_value,
+                            'Otros gastos' => $payroll->others_value,
+                            'Descripcíon otros' => $payroll->other_description,
+                            'Creado en' => $payroll->created_at,
+                            'Actualizado en' => $payroll->updated_at
+                        ];
+        
+                        fputcsv($archivo_salida, $resultado, ';');
                     }
-                    
-                    exit;
+                    fclose($archivo_salida);
+                    Yii::$app->session->setFlash('success', "Reporte generado correctamente.");    
+                } else {
+                    Yii::$app->session->setFlash('error', "No se encontro información con los filtros aplicados.");    
                 }
             } else {
                 Yii::$app->session->setFlash('error', "Debe seleccionar una fecha inicial.");
