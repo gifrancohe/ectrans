@@ -13,7 +13,7 @@ $this->title = 'EC Transportes';
 
         <div class="buttons-actions">
             <a class="btn btn-lg btn-home" href="http://ec2-18-188-114-164.us-east-2.compute.amazonaws.com/index.php?r=payroll%2Fcreate">Conductor</a>
-            <a class="btn btn-lg btn-home" href="http://ec2-18-188-114-164.us-east-2.compute.amazonaws.com/index.php?r=car%2Fcreate">Cliente</a>
+            <a class="btn btn-lg btn-home" href="http://ec2-18-188-114-164.us-east-2.compute.amazonaws.com/index.php?r=reservation%2Fcreate">Cliente</a>
         </div>
     </div>
 
