@@ -25,17 +25,27 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
             'idpayroll',
             'driver.name',
             'car.plaque',
-            'km_initial',
-            'km_final',
+            //'km_initial',
+            //'km_final',
             'from',
             'to',
             'hour',
-            'type_pay',
+            [
+                'attribute' => 'type_pay',
+                'value' => function ($model, $index, $widget) { 
+                    if ($model->type_pay == 1) {
+                        return 'Efectivo';
+                    } elseif ($model->type_pay == 2) {
+                        return 'Voucher';
+                    } else {
+                        return 'Cuenta x Cobrar';
+                    }
+                },
+                'filter' => [1 => 'Efectivo', 2 => 'Voucher', 3 => 'Cuenta x Cobrar'],
+            ],
             'value',
             //'voucher',
             //'parking_value',
