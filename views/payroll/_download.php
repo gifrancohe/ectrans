@@ -42,7 +42,7 @@ use kartik\date\DatePicker;
             <div class="col-md-6">
                 <div class="form-group field-payroll-id_driver">
                     <label class="control-label" for="payroll-id_driver">Conductor</label>
-                    <?= Html::dropDownList('id_driver', 'payroll-id_driver', $drivers); ?>
+                    <?= Html::dropDownList('id_driver', null, $drivers, ['text' => 'Please select', 'options' => ['value' => 'none', 'class' => 'form-control', 'label' => 'Select']]); ?>
                 </div>
             </div>
         </div>
