@@ -78,6 +78,7 @@ class PayrollController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             //return $this->redirect(['view', 'idpayroll' => $model->idpayroll, 'driver_id' => $model->driver_id, 'car_id' => $model->car_id]);
+            Yii::$app->session->setFlash('success', "Planilla creada correctamente."); 
             return $this->redirect(Yii::$app->homeUrl);
         }
 
