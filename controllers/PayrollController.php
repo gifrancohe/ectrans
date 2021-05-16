@@ -182,13 +182,11 @@ class PayrollController extends Controller
                         echo $payroll->car->plaque . "<br>";
                         echo $payroll->from . "<br>";
                         echo $payroll->to . "<br>";
+                        echo $payroll->created_at . "<br>";
                     }
                     
                     exit;
                 }
-
-                
-                return $this->redirect(['view', 'idpayroll' => $model->idpayroll, 'driver_id' => $model->driver_id, 'car_id' => $model->car_id]);
             } else {
                 Yii::$app->session->setFlash('error', "Debe seleccionar una fecha inicial.");
             }
