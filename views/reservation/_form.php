@@ -24,8 +24,7 @@ use kartik\date\DatePicker;
         'options' => ['placeholder' => 'Ingrese la fecha del viaje ...'],
         'pluginOptions' => [
             'format' => 'yyyy-mm-dd',
-            'startDate'=> '2d',
-            'todayHighlight' => true,
+            'startDate'=> date('Y-m-d', strtotime('+1 days')),
             'autoclose'=>true
         ]
     ]); ?>
