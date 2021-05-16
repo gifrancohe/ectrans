@@ -10,7 +10,7 @@ use kartik\date\DatePicker;
 ?>
 
 <div class="payroll-download-form">
-    <?= Html::beginForm(['/payroll/download', 'id' => $model->id], 'POST'); ?>
+    <?= Html::beginForm(['/payroll/download', 'id' => 'payroll-download'], 'POST'); ?>
 
         <div class="row">
             <div class="col-md-6">
