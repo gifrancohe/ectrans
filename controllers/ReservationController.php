@@ -72,7 +72,9 @@ class ReservationController extends Controller
         $customers = ArrayHelper::map(Customer::find()->where(['status' => 1])->all(), 'idcustomer', 'trade_name');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->idreservation]);
+            //return $this->redirect(['view', 'id' => $model->idreservation]);
+            Yii::$app->session->setFlash('success', "Reservación creada correctamente."); 
+            return $this->redirect(Yii::$app->homeUrl);
         }
 
         return $this->render('create', [
