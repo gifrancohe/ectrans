@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model app\models\Driver */
 
 $this->title = Yii::t('app', 'Actualizar conductor: {name}', [
-    'name' => $model->name . $model->last_name,
+    'name' => $model->name . ' ' . $model->last_name,
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Conductores'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->iddriver]];
