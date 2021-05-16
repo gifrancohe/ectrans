@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\models\CarSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Automóvil');
+$this->title = Yii::t('app', 'Automoviles');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="car-index">

@@ -26,12 +26,32 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'last_name',
             'document_number',
-            'type_driver',
-            'status',
+            [
+                'format' => 'raw',
+                'attribute' => 'type_driver',
+                'value' => $model->type_driver == 1 ? 'Propio' : 'Tercero',
+            ],
+            [
+                'format' => 'raw',
+                'attribute' => 'status',
+                'value' => $model->status == 1 ? 'Activo' : 'Inactivo',
+            ],
             'cel',
             'email:email',
-            'created_at',
-            'updated_at',
+            [
+                'format' => 'raw',
+                'attribute' => 'created_at',
+                'value' => function($model) {
+                    return date('Y-m-d H:i:s', strtotime('-5 hour', strtotime($model->created_at)));
+                }
+            ],
+            [
+                'format' => 'raw',
+                'attribute' => 'updated_at',
+                'value' => function($model) {
+                    return date('Y-m-d H:i:s', strtotime('-5 hour', strtotime($model->updated_at)));
+                }
+            ],
         ],
     ]) ?>
 

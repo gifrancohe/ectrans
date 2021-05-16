@@ -27,12 +27,20 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'iddriver',
+            //'iddriver',
             'name',
             'last_name',
             'document_number',
-            'type_driver',
-            //'status',
+            [
+                'attribute' => 'type_driver',
+                'value' => function ($model, $index, $widget) { return $model->type_driver == 1 ? 'Propio' : 'Tercero'; },
+                'filter' => [1 => 'Propio', 0 => 'Tercero'],
+            ],
+            [
+                'attribute' => 'status',
+                'value' => function ($model, $index, $widget) { return $model->status == 1 ? 'Activo' : 'Inactivo'; },
+                'filter' => [1 => 'Activo', 0 => 'Inactivo'],
+            ],
             //'cel',
             //'email:email',
             //'created_at',
