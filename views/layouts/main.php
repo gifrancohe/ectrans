@@ -39,9 +39,10 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Inicio', 'url' => ['/site/index']],
+            !Yii::$app->user->isGuest ? (
             ['label' => 'Planillas', 'url' => ['/payroll/create']],
             ['label' => 'Conductores', 'url' => ['/driver/index']],
-            ['label' => 'Autos', 'url' => ['/car/index']],
+            ['label' => 'Autos', 'url' => ['/car/index']],),
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
