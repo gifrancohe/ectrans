@@ -169,10 +169,18 @@ class PayrollController extends Controller
                 $date_from = $data['date_from'];
                 $date_to = $data['date_to'];
                 $id_driver = $data['id_driver'];
-                var_dump($data);
-                exit;
-                $payrolls = Payroll::find()
-                ->where(['between', 'date', "2014-12-31", "2015-02-31" ])->all();
+                
+                if (!empty($date_to) && !empty($id_driver)) {
+                    $payrolls = Payroll::find()
+                    ->where(['between', 'created_at', $date_from, $date_to])
+                    ->where(['driver_id' => $id_driver])
+                    ->all();
+
+                    var_dump($payrolls);
+                    exit;
+                }
+
+                
                 return $this->redirect(['view', 'idpayroll' => $model->idpayroll, 'driver_id' => $model->driver_id, 'car_id' => $model->car_id]);
             } else {
                 Yii::$app->session->setFlash('error', "Debe seleccionar una fecha inicial.");
