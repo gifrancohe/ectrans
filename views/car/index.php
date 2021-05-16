@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'format' => 'raw',
                 'attribute' => 'status',
-                'value' => $model->status == 1 ? 'Activo' : 'Inactivo',
+                'value' => $dataProvider->status == 1 ? 'Activo' : 'Inactivo',
             ],
             'colour',
             'brand',
