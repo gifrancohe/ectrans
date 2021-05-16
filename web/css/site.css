@@ -109,6 +109,12 @@ a.desc:after {
         width: 100%;
         padding: 10px 15px;
     }
+
+    .btn-home {
+        background-color: #e6ac1a;
+        border-color: #FCBB13;
+        color: #fff;
+    }
 }
 
 .nav > li > form > button.logout:focus,
