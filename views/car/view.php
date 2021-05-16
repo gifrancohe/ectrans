@@ -24,10 +24,21 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'idcar',
             'plaque',
-            'status',
+            [
+                'format' => 'raw',
+                'attribute' => 'status',
+                'value' => $model->status == 1 ? 'Activo' : 'Inactivo',
+            ],
             'colour',
             'brand',
             'created_at',
+            [
+                'format' => 'raw',
+                'attribute' => 'created_at',
+                'value' => function($model) {
+                    return date('Y-m-d H:i:s', strtotime('-5 hour', strtotime($model->created_at)));
+                }
+            ],
             'updated_at',
         ],
     ]) ?>
