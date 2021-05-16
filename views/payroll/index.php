@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\models\PayrollSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Payrolls');
+$this->title = Yii::t('app', 'Planillas');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="payroll-index">
@@ -56,7 +56,11 @@ $this->params['breadcrumbs'][] = $this->title;
             //'created_at',
             //'updated_at',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'header'=>'Acciones',
+                'template' => '{view} {update}',
+            ],
         ],
     ]); ?>
 
