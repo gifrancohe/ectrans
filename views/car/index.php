@@ -28,9 +28,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
             'plaque',
             [
-                'format' => 'raw',
                 'attribute' => 'status',
-                'value' => $dataProvider->status == 1 ? 'Activo' : 'Inactivo',
+                'value' => function ($model, $index, $widget) { return $model->status == 1 ? 'Activo' : 'Inactivo') },
+                'filter' => [1 => 'Activo', 0 => 'Inactivo'],
             ],
             'colour',
             'brand',
