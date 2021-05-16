@@ -41,9 +41,9 @@ AppAsset::register($this);
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Iniciar sessión', 'url' => ['/site/login']];
     } else {
-        $menuItems[] = ['label' => 'Planillas', 'url' => ['/payroll/index']],
-        $menuItems[] = ['label' => 'Conductores', 'url' => ['/driver/index']],
-        $menuItems[] = ['label' => 'Automoviles', 'url' => ['/car/index']],
+        $menuItems[] = ['label' => 'Planillas', 'url' => ['/payroll/index']];
+        $menuItems[] = ['label' => 'Conductores', 'url' => ['/driver/index']];
+        $menuItems[] = ['label' => 'Automoviles', 'url' => ['/car/index']];
         $menuItems[] = [
             'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
             'url' => ['/site/logout'],
