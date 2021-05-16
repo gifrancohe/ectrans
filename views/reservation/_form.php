@@ -23,6 +23,10 @@ use kartik\date\DatePicker;
     <?= $form->field($model, 'reservation_date')->widget(DatePicker::classname(), [
         'options' => ['placeholder' => 'Ingrese la fecha del viaje ...'],
         'pluginOptions' => [
+            'format' => 'yyyy-mm-dd',
+            'startDate'=> '0d',
+            'todayHighlight' => true,
+            'todayBtn' => true,
             'autoclose'=>true
         ]
     ]); ?>
