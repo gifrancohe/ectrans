@@ -114,6 +114,12 @@ a.desc:after {
         background-color: #e6ac1a;
         border-color: #FCBB13;
         color: #fff;
+        margin: 5px;
+    }
+
+    .buttons-actions {
+        display: flex;
+        flex-direction: column;
     }
 }
 
