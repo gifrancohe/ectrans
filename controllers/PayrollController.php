@@ -100,12 +100,19 @@ class PayrollController extends Controller
     {
         $model = $this->findModel($idpayroll, $driver_id, $car_id);
 
+        $drivers = ArrayHelper::map(Driver::find()->select(['iddriver','name','last_name'])->where(['status' => 1])->all(), 'iddriver', function($data) {
+            return $data['name'] . ' ' . $data['last_name'];
+        });
+        $cars = ArrayHelper::map(Car::find()->where(['status' => 1])->all(), 'idcar', 'plaque');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'idpayroll' => $model->idpayroll, 'driver_id' => $model->driver_id, 'car_id' => $model->car_id]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'drivers' => $drivers,
+            'cars' => $cars
         ]);
     }
 
