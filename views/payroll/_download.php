@@ -48,7 +48,7 @@ use kartik\date\DatePicker;
         </div>
         
         <div class="form-group">
-            <?= Html::submitButton('POST', ['class' => 'btn btn-primary']); ?>
+            <?= Html::submitButton('Descargar', ['class' => 'btn btn-primary']); ?>
         </div>
     <?= Html::endForm(); ?>
 </div>
