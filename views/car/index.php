@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'plaque',
             [
                 'attribute' => 'status',
-                'value' => function ($model, $index, $widget) { return $model->status == 1 ? 'Activo' : 'Inactivo') },
+                'value' => function ($model, $index, $widget) { return $model->status == 1 ? 'Activo' : 'Inactivo'; },
                 'filter' => [1 => 'Activo', 0 => 'Inactivo'],
             ],
             'colour',
