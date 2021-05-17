@@ -15,6 +15,24 @@ $this->title = 'EC Transportes';
             <a class="btn btn-lg btn-home" href="http://ec2-18-188-114-164.us-east-2.compute.amazonaws.com/index.php?r=payroll%2Fcreate">Conductor</a>
             <a class="btn btn-lg btn-home" href="http://ec2-18-188-114-164.us-east-2.compute.amazonaws.com/index.php?r=reservation%2Fcreate">Cliente</a>
         </div>
+
+        <div class="slider-image">
+            <?= echo Carousel::widget([
+                'items' => [
+                    // the item contains only the image
+                    '<img src="http://twitter.github.io/bootstrap/assets/img/bootstrap-mdo-sfmoma-01.jpg"/>',
+                    // equivalent to the above
+                    ['content' => '<img src="http://twitter.github.io/bootstrap/assets/img/bootstrap-mdo-sfmoma-02.jpg"/>'],
+                    // the item contains both the image and the caption
+                    [
+                        'content' => '<img src="http://twitter.github.io/bootstrap/assets/img/bootstrap-mdo-sfmoma-03.jpg"/>',
+                        'caption' => '<h4>This is title</h4><p>This is the caption text</p>',
+                        'options' => [...],
+                    ],
+                ]
+            ]);
+            ?>
+        </div>
     </div>
 
     <div class="body-content">
