@@ -17,8 +17,8 @@ class ReservationSearch extends Reservation
     public function rules()
     {
         return [
-            [['idreservation', 'customer_id', 'type_pay', 'reservation_status'], 'integer'],
-            [['from', 'to', 'reservation_date', 'reservation_hour', 'voucher', 'created_at', 'updated_at'], 'safe'],
+            [['idreservation', 'customer_id', 'type_pay', 'reservation_status', 'passenger_number'], 'integer'],
+            [['from', 'to', 'reservation_date', 'reservation_hour', 'contact_person', 'voucher', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -63,6 +63,7 @@ class ReservationSearch extends Reservation
             'reservation_date' => $this->reservation_date,
             'type_pay' => $this->type_pay,
             'reservation_status' => $this->reservation_status,
+            'passenger_number' => $this->passenger_number,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
@@ -70,6 +71,7 @@ class ReservationSearch extends Reservation
         $query->andFilterWhere(['like', 'from', $this->from])
             ->andFilterWhere(['like', 'to', $this->to])
             ->andFilterWhere(['like', 'reservation_hour', $this->reservation_hour])
+            ->andFilterWhere(['like', 'contact_person', $this->contact_person])
             ->andFilterWhere(['like', 'voucher', $this->voucher]);
 
         return $dataProvider;

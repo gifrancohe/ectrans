@@ -15,6 +15,8 @@ use Yii;
  * @property string $reservation_hour
  * @property int $type_pay
  * @property int $reservation_status
+ * @property string $contact_person
+ * @property int $passenger_number
  * @property string|null $voucher
  * @property string|null $created_at
  * @property string|null $updated_at
@@ -37,11 +39,12 @@ class Reservation extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['customer_id', 'from', 'to', 'reservation_date', 'reservation_hour', 'type_pay'], 'required'],
-            [['customer_id', 'type_pay', 'reservation_status'], 'integer'],
+            [['customer_id', 'from', 'to', 'reservation_date', 'reservation_hour', 'type_pay', 'contact_person', 'passenger_number'], 'required'],
+            [['customer_id', 'type_pay', 'reservation_status', 'passenger_number'], 'integer'],
             [['reservation_date', 'created_at', 'updated_at'], 'safe'],
             [['from', 'to'], 'string', 'max' => 150],
             [['reservation_hour', 'voucher'], 'string', 'max' => 45],
+            [['contact_person'], 'string', 'max' => 250],
             [['customer_id'], 'exist', 'skipOnError' => true, 'targetClass' => Customer::className(), 'targetAttribute' => ['customer_id' => 'idcustomer']],
         ];
     }
@@ -52,17 +55,19 @@ class Reservation extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idreservation' => Yii::t('app', 'Id Reservación'),
-            'customer_id' => Yii::t('app', 'Cliente'),
-            'from' => Yii::t('app', 'Desde'),
-            'to' => Yii::t('app', 'Hasta'),
-            'reservation_date' => Yii::t('app', 'Fecha reservación'),
-            'reservation_hour' => Yii::t('app', 'Hora reservación'),
-            'type_pay' => Yii::t('app', 'Tipo de pago'),
-            'reservation_status' => Yii::t('app', 'Estado'),
+            'idreservation' => Yii::t('app', 'Idreservation'),
+            'customer_id' => Yii::t('app', 'Customer ID'),
+            'from' => Yii::t('app', 'From'),
+            'to' => Yii::t('app', 'To'),
+            'reservation_date' => Yii::t('app', 'Reservation Date'),
+            'reservation_hour' => Yii::t('app', 'Reservation Hour'),
+            'type_pay' => Yii::t('app', 'Type Pay'),
+            'reservation_status' => Yii::t('app', 'Reservation Status'),
+            'contact_person' => Yii::t('app', 'Contact Person'),
+            'passenger_number' => Yii::t('app', 'Passenger Number'),
             'voucher' => Yii::t('app', 'Voucher'),
-            'created_at' => Yii::t('app', 'Creado en'),
-            'updated_at' => Yii::t('app', 'Actualizado en'),
+            'created_at' => Yii::t('app', 'Created At'),
+            'updated_at' => Yii::t('app', 'Updated At'),
         ];
     }
 

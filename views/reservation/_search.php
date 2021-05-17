@@ -34,6 +34,10 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'reservation_status') ?>
 
+    <?php // echo $form->field($model, 'contact_person') ?>
+
+    <?php // echo $form->field($model, 'passenger_number') ?>
+
     <?php // echo $form->field($model, 'voucher') ?>
 
     <?php // echo $form->field($model, 'created_at') ?>
