@@ -17,7 +17,7 @@ $this->title = 'EC Transportes';
         </div>
 
         <div class="slider-image">
-            <?= echo Carousel::widget([
+            <?= Carousel::widget([
                 'items' => [
                     // the item contains only the image
                     '<img src="http://twitter.github.io/bootstrap/assets/img/bootstrap-mdo-sfmoma-01.jpg"/>',
