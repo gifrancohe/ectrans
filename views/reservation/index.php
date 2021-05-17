@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\models\ReservationSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Reservations');
+$this->title = Yii::t('app', 'Reservaciones');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="reservation-index">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Reservation'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Crear Reservación'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
@@ -25,23 +25,22 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
             'idreservation',
-            'customer_id',
+            'customer.trade_name',
             'from',
             'to',
             'reservation_date',
-            //'reservation_hour',
+            'reservation_hour',
             //'type_pay',
             //'reservation_status',
-            //'contact_person',
-            //'passenger_number',
             //'voucher',
             //'created_at',
             //'updated_at',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {update}',
+            ],
         ],
     ]); ?>
 

@@ -41,6 +41,7 @@ class Reservation extends \yii\db\ActiveRecord
         return [
             [['customer_id', 'from', 'to', 'reservation_date', 'reservation_hour', 'type_pay', 'contact_person', 'passenger_number'], 'required'],
             [['customer_id', 'type_pay', 'reservation_status', 'passenger_number'], 'integer'],
+            [['passenger_number'], 'min' => 1],
             [['reservation_date', 'created_at', 'updated_at'], 'safe'],
             [['from', 'to'], 'string', 'max' => 150],
             [['reservation_hour', 'voucher'], 'string', 'max' => 45],
@@ -55,19 +56,19 @@ class Reservation extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idreservation' => Yii::t('app', 'Idreservation'),
-            'customer_id' => Yii::t('app', 'Customer ID'),
-            'from' => Yii::t('app', 'From'),
-            'to' => Yii::t('app', 'To'),
-            'reservation_date' => Yii::t('app', 'Reservation Date'),
-            'reservation_hour' => Yii::t('app', 'Reservation Hour'),
-            'type_pay' => Yii::t('app', 'Type Pay'),
-            'reservation_status' => Yii::t('app', 'Reservation Status'),
-            'contact_person' => Yii::t('app', 'Contact Person'),
-            'passenger_number' => Yii::t('app', 'Passenger Number'),
+            'idreservation' => Yii::t('app', 'Id Reservación'),
+            'customer_id' => Yii::t('app', 'Cliente'),
+            'from' => Yii::t('app', 'Desde'),
+            'to' => Yii::t('app', 'Hasta'),
+            'reservation_date' => Yii::t('app', 'Fecha reservación'),
+            'reservation_hour' => Yii::t('app', 'Hora reservación'),
+            'type_pay' => Yii::t('app', 'Tipo de pago'),
+            'reservation_status' => Yii::t('app', 'Estado'),
+            'contact_person' => Yii::t('app', 'Persona responsable'),
+            'passenger_number' => Yii::t('app', 'Nro de pasajeros'),
             'voucher' => Yii::t('app', 'Voucher'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'created_at' => Yii::t('app', 'Creado en'),
+            'updated_at' => Yii::t('app', 'Actualizado en'),
         ];
     }
 

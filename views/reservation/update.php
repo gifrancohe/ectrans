@@ -5,12 +5,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Reservation */
 
-$this->title = Yii::t('app', 'Update Reservation: {name}', [
+$this->title = Yii::t('app', 'Actualizar Reservación: {name}', [
     'name' => $model->idreservation,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Reservations'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Reservaciones'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->idreservation, 'url' => ['view', 'id' => $model->idreservation]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = Yii::t('app', 'Actualizar');
 ?>
 <div class="reservation-update">
 
@@ -18,6 +18,7 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 
     <?= $this->render('_form', [
         'model' => $model,
+        'customers' => $customers
     ]) ?>
 
 </div>

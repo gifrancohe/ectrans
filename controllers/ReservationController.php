@@ -8,6 +8,9 @@ use app\models\ReservationSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
+
+use app\models\Customer;
 
 /**
  * ReservationController implements the CRUD actions for Reservation model.
@@ -66,12 +69,16 @@ class ReservationController extends Controller
     {
         $model = new Reservation();
 
+        $customers = ArrayHelper::map(Customer::find()->where(['status' => 1])->all(), 'idcustomer', 'trade_name');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->idreservation]);
+            Yii::$app->session->setFlash('success', "Reservación creada correctamente."); 
+            return $this->redirect(Yii::$app->homeUrl);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'customers' => $customers
         ]);
     }
 
@@ -86,12 +93,15 @@ class ReservationController extends Controller
     {
         $model = $this->findModel($id);
 
+        $customers = ArrayHelper::map(Customer::find()->where(['status' => 1])->all(), 'idcustomer', 'trade_name');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->idreservation]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'customers' => $customers
         ]);
     }
 
