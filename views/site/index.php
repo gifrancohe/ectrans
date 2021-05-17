@@ -1,6 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
+use yii\bootstrap\Carousel;
 
 $this->title = 'EC Transportes';
 ?>
