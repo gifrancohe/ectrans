@@ -38,10 +38,10 @@ $this->title = 'EC Transportes';
                     ]
                 ]);
             ?>
-                <div class="item-class"><?= Html::img('@web/ec-background-drivers.jpg', ['alt'=>'image-1']);?></div>
-                <div class="item-class"><?= Html::img('@web/ec-background-drivers.jpg', ['alt'=>'image-2']);?></div>
-                <div class="item-class"><?= Html::img('@web/ec-background-drivers.jpg', ['alt'=>'image-3']);?></div>
-                <div class="item-class"><?= Html::img('@web/ec-background-drivers.jpg', ['alt'=>'image-4']);?></div>
+                <div class="item-class"><?= Html::img('@web/ec-background-drivers.jpeg', ['alt'=>'image-1']);?></div>
+                <div class="item-class"><?= Html::img('@web/ec-background-drivers.jpeg', ['alt'=>'image-2']);?></div>
+                <div class="item-class"><?= Html::img('@web/ec-background-drivers.jpeg', ['alt'=>'image-3']);?></div>
+                <div class="item-class"><?= Html::img('@web/ec-background-drivers.jpeg', ['alt'=>'image-4']);?></div>
             <?php OwlCarouselWidget::end(); ?>
         </div>
     </div>
