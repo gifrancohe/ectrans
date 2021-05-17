@@ -1,7 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
-use yii\bootstrap\Carousel;
+use kv4nt\owlcarousel\OwlCarouselWidget;
 
 $this->title = 'EC Transportes';
 ?>
@@ -18,20 +18,30 @@ $this->title = 'EC Transportes';
         </div>
 
         <div class="slider-image">
-            <?= Carousel::widget([
-                'items' => [
-                    // the item contains only the image
-                    '<img src="../web/ec-background-drivers.jpeg"/>',
-                    // equivalent to the above
-                    ['content' => '<img src="../web/ec-background-drivers.jpeg"/>'],
-                    // the item contains both the image and the caption
-                    [
-                        'content' => '<img src="../web/ec-background-drivers.jpeg"/>',
-                        'caption' => '<h4>This is title</h4><p>This is the caption text</p>',
+            <?php 
+                OwlCarouselWidget::begin([
+                    'container' => 'div',
+                    'assetType' => OwlCarouselWidget::ASSET_TYPE_CDN,
+                    'jqueryFunction' => 'jQuery',// or $
+                    'containerOptions' => [
+                        'id' => 'container-id',
+                        'class' => 'container-class owl-theme'
                     ],
-                ]
-            ]);
+                    'pluginOptions'    => [
+                        'autoplay'          => true,
+                        'autoplayTimeout'   => 3000,
+                        'items'             => 3,
+                        'loop'              => true,
+                        'itemsDesktop'      => [1199, 3],
+                        'itemsDesktopSmall' => [979, 3]
+                    ]
+                ]);
             ?>
+                <div class="item-class"><img src="../web/ec-background-drivers.jpg" alt="Image 1"></div>
+                <div class="item-class"><img src="../web/ec-background-drivers.jpg" alt="Image 2"></div>
+                <div class="item-class"><img src="../web/ec-background-drivers.jpg" alt="Image 3"></div>
+                <div class="item-class"><img src="../web/ec-background-drivers.jpg" alt="Image 4"></div>
+            <?php OwlCarouselWidget::end(); ?>
         </div>
     </div>
 
