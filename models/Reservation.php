@@ -41,7 +41,6 @@ class Reservation extends \yii\db\ActiveRecord
         return [
             [['customer_id', 'from', 'to', 'reservation_date', 'reservation_hour', 'type_pay', 'contact_person', 'passenger_number'], 'required'],
             [['customer_id', 'type_pay', 'reservation_status', 'passenger_number'], 'integer'],
-            [['passenger_number'], 'min' => 1],
             [['reservation_date', 'created_at', 'updated_at'], 'safe'],
             [['from', 'to'], 'string', 'max' => 150],
             [['reservation_hour', 'voucher'], 'string', 'max' => 45],
