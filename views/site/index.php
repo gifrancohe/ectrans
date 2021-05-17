@@ -2,6 +2,7 @@
 
 /* @var $this yii\web\View */
 use kv4nt\owlcarousel\OwlCarouselWidget;
+use yii\helpers\Html;
 
 $this->title = 'EC Transportes';
 ?>
@@ -37,10 +38,10 @@ $this->title = 'EC Transportes';
                     ]
                 ]);
             ?>
-                <div class="item-class"><img src="../web/ec-background-drivers.jpg" alt="Image 1"></div>
-                <div class="item-class"><img src="../web/ec-background-drivers.jpg" alt="Image 2"></div>
-                <div class="item-class"><img src="../web/ec-background-drivers.jpg" alt="Image 3"></div>
-                <div class="item-class"><img src="../web/ec-background-drivers.jpg" alt="Image 4"></div>
+                <div class="item-class"><?= Html::img('@web/ec-background-drivers.jpg', ['alt'=>'image-1']);?></div>
+                <div class="item-class"><?= Html::img('@web/ec-background-drivers.jpg', ['alt'=>'image-2']);?></div>
+                <div class="item-class"><?= Html::img('@web/ec-background-drivers.jpg', ['alt'=>'image-3']);?></div>
+                <div class="item-class"><?= Html::img('@web/ec-background-drivers.jpg', ['alt'=>'image-4']);?></div>
             <?php OwlCarouselWidget::end(); ?>
         </div>
     </div>
