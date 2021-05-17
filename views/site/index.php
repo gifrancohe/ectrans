@@ -31,17 +31,26 @@ $this->title = 'EC Transportes';
                     'pluginOptions'    => [
                         'autoplay'          => true,
                         'autoplayTimeout'   => 3000,
-                        'items'             => 3,
+                        'items'             => 2,
                         'loop'              => true,
                         'itemsDesktop'      => [1199, 3],
-                        'itemsDesktopSmall' => [979, 3]
+                        'itemsDesktopSmall' => [979, 3],
                     ]
                 ]);
             ?>
-                <div class="item-class"><?= Html::img('@web/ec-background-drivers.jpeg', ['alt'=>'image-1']);?></div>
-                <div class="item-class"><?= Html::img('@web/ec-background-drivers.jpeg', ['alt'=>'image-2']);?></div>
-                <div class="item-class"><?= Html::img('@web/ec-background-drivers.jpeg', ['alt'=>'image-3']);?></div>
-                <div class="item-class"><?= Html::img('@web/ec-background-drivers.jpeg', ['alt'=>'image-4']);?></div>
+                <div class="item-class"><?= Html::img('@web/image-1.jpeg', ['alt'=>'image-1']);?></div>
+                <div class="item-class"><?= Html::img('@web/image-2.jpeg', ['alt'=>'image-2']);?></div>
+                <div class="item-class"><?= Html::img('@web/image-3.jpeg', ['alt'=>'image-3']);?></div>
+                <div class="item-class"><?= Html::img('@web/image-4.jpeg', ['alt'=>'image-4']);?></div>
+                <div class="item-class"><?= Html::img('@web/image-5.jpeg', ['alt'=>'image-5']);?></div>
+                <div class="item-class"><?= Html::img('@web/image-6.jpeg', ['alt'=>'image-6']);?></div>
+                <div class="item-class"><?= Html::img('@web/image-7.jpeg', ['alt'=>'image-7']);?></div>
+                <div class="item-class"><?= Html::img('@web/image-8.jpeg', ['alt'=>'image-8']);?></div>
+                <div class="item-class"><?= Html::img('@web/image-9.jpeg', ['alt'=>'image-9']);?></div>
+                <div class="item-class"><?= Html::img('@web/image-10.jpeg', ['alt'=>'image-10']);?></div>
+                <div class="item-class"><?= Html::img('@web/image-11.jpeg', ['alt'=>'image-11']);?></div>
+                <div class="item-class"><?= Html::img('@web/image-12.jpeg', ['alt'=>'image-12']);?></div>
+                <div class="item-class"><?= Html::img('@web/image-13.jpeg', ['alt'=>'image-13']);?></div>
             <?php OwlCarouselWidget::end(); ?>
         </div>
     </div>
