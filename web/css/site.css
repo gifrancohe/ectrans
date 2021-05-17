@@ -37,6 +37,12 @@ body {
     color: #fff;
 }
 
+.btn-home:hover {
+    color: #fff;
+    background-color: #e6ac1ab0;
+    border-color: #e6ac1ab0;
+}
+
 .not-set {
     color: #c55;
     font-style: italic;
