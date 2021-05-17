@@ -42,6 +42,11 @@ body {
     font-style: italic;
 }
 
+.payroll-button-action {
+    display: flex;
+    justify-content: space-between;
+}
+
 /* add sorting icons to gridview sort links */
 a.asc:after, a.desc:after {
     position: relative;

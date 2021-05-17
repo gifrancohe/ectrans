@@ -14,9 +14,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
+    <p class="payroll-button-action">
         <?= Html::a(Yii::t('app', 'Crear Planilla'), ['create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a(Yii::t('app', 'Descargar Planilla'), ['download'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Descargar Planilla'), ['download'], ['class' => 'btn btn-success btn-home']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
