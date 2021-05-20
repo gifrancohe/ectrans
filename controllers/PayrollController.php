@@ -77,9 +77,9 @@ class PayrollController extends Controller
         $cars = ArrayHelper::map(Car::find()->where(['status' => 1])->all(), 'idcar', 'plaque');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            //return $this->redirect(['view', 'idpayroll' => $model->idpayroll, 'driver_id' => $model->driver_id, 'car_id' => $model->car_id]);
-            Yii::$app->session->setFlash('success', "Planilla creada correctamente."); 
-            return $this->redirect(Yii::$app->homeUrl);
+            return $this->redirect(['view', 'idpayroll' => $model->idpayroll, 'driver_id' => $model->driver_id, 'car_id' => $model->car_id]);
+            //Yii::$app->session->setFlash('success', "Planilla creada correctamente."); 
+            //return $this->redirect(Yii::$app->homeUrl);
         }
 
         return $this->render('create', [
