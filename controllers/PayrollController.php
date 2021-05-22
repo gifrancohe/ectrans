@@ -211,12 +211,12 @@ class PayrollController extends Controller
                     ->all();
                 }
 
-                header('Content-Type: text/csv; charset=utf-8');
-                header('Content-Disposition: attachment; filename=planillas-' . date('Y-m-d-His', time() - 18000) . '.csv');
-
-                $archivo_salida = fopen('php://output', 'w');
-
                 if (!empty($payrolls)) {
+                    header('Content-Type: text/csv; charset=utf-8');
+                    header('Content-Disposition: attachment; filename=planillas-' . date('Y-m-d-His', time() - 18000) . '.csv');
+
+                    $archivo_salida = fopen('php://output', 'w');
+
                     $campos = ['Id Planilla', 'Conductor', 'Placa', 'Km Inicial', 'Km Final', 'Desde' , 'Hasta', 'Hora', 'Tipo de pago', 'Valor', 'Fecha liquidación', 'Voucher', 'Gasto Parq', 'Gasto gas', 'Otros gastos', 'Descripcíon otros', 'Creado en', 'Actualizado en'];
                     fputcsv($archivo_salida, $campos, ';');
                     foreach ($payrolls as $payroll) {
