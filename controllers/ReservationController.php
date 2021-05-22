@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 
 namespace app\controllers;
 
@@ -155,9 +158,6 @@ class ReservationController extends Controller
     public function actionDownload()
     {
         if (Yii::$app->request->post()) {
-            ini_set('display_errors', '1');
-            ini_set('display_startup_errors', '1');
-            error_reporting(E_ALL);
             $data = Yii::$app->request->post();
             if (!empty($data['date_from'])) {
                 
