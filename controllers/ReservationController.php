@@ -192,6 +192,7 @@ class ReservationController extends Controller
                             $type_pay = 'Cuenta x Cobrar';
                         }
                         $status = $reservation->reservation_status == 1 ? 'Activa' : 'Inactiva';
+                        var_dump($resultado); exit;
                         $resultado = [
                             'Id Planilla' => $reservation->idreservation,
                             'Cliente' => $reservation->customer_id, 
@@ -212,7 +213,6 @@ class ReservationController extends Controller
                             'Creado en' => $reservation->created_at,
                             'Actualizado en' => $reservation->updated_at
                         ];
-                        var_dump($resultado); exit;
                         fputcsv($archivo_salida, $resultado, ';');
                     }
                     fclose($archivo_salida);
