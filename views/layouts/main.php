@@ -40,7 +40,7 @@ AppAsset::register($this);
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Iniciar sessión', 'url' => ['/site/login']];
-    } elseif (Yii::$app->user->identity->username == 'admin') {
+    } elseif (Yii::$app->user->identity->username == 'admin' || Yii::$app->user->identity->username == 'gfrancoh') {
         $menuItems[] = ['label' => 'Planillas', 'url' => ['/payroll/index']];
         $menuItems[] = ['label' => 'Conductores', 'url' => ['/driver/index']];
         $menuItems[] = ['label' => 'Automoviles', 'url' => ['/car/index']];
