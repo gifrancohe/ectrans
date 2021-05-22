@@ -122,6 +122,11 @@ a.desc:after {
     margin-top: 15px;
 }
 
+form div.required label.control-label:after {
+    content:" * ";
+    color:red;
+}
+
 @media(max-width:767px) {
     .nav li > form > button.logout {
         display:block;
