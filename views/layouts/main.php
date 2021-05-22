@@ -53,6 +53,11 @@ AppAsset::register($this);
         ];
     } else {
         $menuItems[] = ['label' => 'Crear planilla', 'url' => ['/payroll/create']];
+        $menuItems[] = [
+            'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+            'url' => ['/site/logout'],
+            'linkOptions' => ['data-method' => 'post']
+        ];
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
