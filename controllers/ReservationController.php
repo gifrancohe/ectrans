@@ -156,7 +156,6 @@ class ReservationController extends Controller
     {
         if (Yii::$app->request->post()) {
             $data = Yii::$app->request->post();
-            var_dump($data); exit;
             if (!empty($data['date_from'])) {
                 
                 $date_from = $data['date_from'] . ' 00:00:00';
@@ -174,6 +173,7 @@ class ReservationController extends Controller
                     $reservations = Reservation::find()
                     ->where(['>=', 'created_at', $date_from])
                     ->all();
+                    var_dump($reservations); exit;
                 }
 
                 header('Content-Type: text/csv; charset=utf-8');
