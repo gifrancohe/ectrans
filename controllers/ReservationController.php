@@ -146,4 +146,88 @@ class ReservationController extends Controller
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
+
+    /**
+     * Function to download reservation of customers between two dates
+     * @param date date_from
+     * @param date date_to
+     */
+    public function actionDownload()
+    {
+        if (Yii::$app->request->post()) {
+            $data = Yii::$app->request->post();
+            if (!empty($data['date_from'])) {
+                
+                $date_from = $data['date_from'] . ' 00:00:00';
+                $date_to = $data['date_to'];
+                
+                if (!empty($date_to)) {
+                   
+                    $date_to = $date_to . ' 23:59:59';
+                    
+                    $reservations = Reservation::find()
+                    ->where(['between', 'created_at', $date_from, $date_to])
+                    ->all();
+                
+                } else {
+                    $reservations = Reservation::find()
+                    ->where(['>=', 'created_at', $date_from])
+                    ->all();
+                }
+
+                header('Content-Type: text/csv; charset=utf-8');
+                header('Content-Disposition: attachment; filename=reservaciones-' . date('Y-m-d-His', time() - 18000) . '.csv');
+
+                $archivo_salida = fopen('php://output', 'w');
+
+                if (!empty($reservations)) {
+                    $campos = ['Id Reservación', 'Cliente', 'Desde', 'Hasta', 'Fecha reserva', 'Hora reserva' , 'Tipo de pago', 'Voucher', 'Estado reserva', 'Responsable reserva', 'Nro de pasajeros', 'Nombre pasajero', 'Contacto pasajero', 'Observaciones', 'Detalle vuelo', 'Creado en', 'Actualizado en'];
+                    fputcsv($archivo_salida, $campos, ';');
+                    foreach ($reservations as $reservation) {
+                        if ($reservation->type_pay == 1) {
+                            $type_pay = 'Efectivo';
+                        } elseif ($reservation->type_pay == 2) {
+                            $type_pay = 'Voucher';
+                        } else {
+                            $type_pay = 'Cuenta x Cobrar';
+                        }
+                        $status = $reservation->status == 1 ? 'Activa' : 'Inactiva';
+                        $resultado = [
+                            'Id Planilla' => $reservation->idreservation,
+                            'Cliente' => $reservation->customer->trade_name, 
+                            'Desde'  => $reservation->from,
+                            'Hasta' => $reservation->to,
+                            'Fecha reserva' => $reservation->reservation_date,
+                            'Hora reserva' => $reservation->reservation_hour,
+                            'Tipo de pago' => $type_pay,
+                            'Voucher' => $reservation->voucher,
+                            'Estado reserva' => $status,
+                            'Fecha liquidación' => $reservation->settlement_date,
+                            'Responsable reserva' => $reservation->contact_person,
+                            'Nro de pasajeros' => $reservation->passenger_number, 
+                            'Nombre pasajero' => $reservation->passenger_name, 
+                            'Contacto pasajero' => $reservation->passenger_cel, 
+                            'Observaciones' => $reservation->comments, 
+                            'Detalle vuelo' => $reservation->flight_details,
+                            'Creado en' => $reservation->created_at,
+                            'Actualizado en' => $reservation->updated_at
+                        ];
+        
+                        fputcsv($archivo_salida, $resultado, ';');
+                    }
+                    fclose($archivo_salida);
+                    Yii::$app->session->setFlash('success', "Reporte generado correctamente.");    
+                    exit;
+                } else {
+                    Yii::$app->session->setFlash('error', "No se encontro información con los filtros aplicados.");    
+                }
+            } else {
+                Yii::$app->session->setFlash('error', "Debe seleccionar una fecha inicial.");
+            }
+        }
+
+        return $this->render('download');
+    }
+
+    //Desde el código apoyamos el paro nacional
 }
