@@ -156,6 +156,7 @@ class ReservationController extends Controller
     {
         if (Yii::$app->request->post()) {
             $data = Yii::$app->request->post();
+            var_dump($data); exit;
             if (!empty($data['date_from'])) {
                 
                 $date_from = $data['date_from'] . ' 00:00:00';

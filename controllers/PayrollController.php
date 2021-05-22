@@ -217,7 +217,7 @@ class PayrollController extends Controller
                 $archivo_salida = fopen('php://output', 'w');
 
                 if (!empty($payrolls)) {
-                    $campos = ['Id Planilla', 'Conductor', 'Placa', 'Km Inicial', 'Km Final', 'Desde' , 'Hasta', 'Hora', 'Tipo de pago', 'Valor', 'Voucher', 'Gasto Parq', 'Gasto gas', 'Otros gastos', 'Descripcíon otros', 'Creado en', 'Actualizado en'];
+                    $campos = ['Id Planilla', 'Conductor', 'Placa', 'Km Inicial', 'Km Final', 'Desde' , 'Hasta', 'Hora', 'Tipo de pago', 'Valor', 'Fecha liquidación', 'Voucher', 'Gasto Parq', 'Gasto gas', 'Otros gastos', 'Descripcíon otros', 'Creado en', 'Actualizado en'];
                     fputcsv($archivo_salida, $campos, ';');
                     foreach ($payrolls as $payroll) {
                         if ($payroll->type_pay == 1) {
