@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\time\TimePicker;
+use kartik\date\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Payroll */
@@ -81,8 +82,18 @@ use kartik\time\TimePicker;
     </div>
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <?= $form->field($model, 'flypass_value')->textInput() ?>
+        </div>
+        <div class="col-md-6">
+            <?= $form->field($model, 'settlement_date')->widget(DatePicker::classname(), [
+                'options' => ['placeholder' => 'Ingrese la fecha a liquidar ...'],
+                'pluginOptions' => [
+                    'format' => 'yyyy-mm-dd H:i:s',
+                    'startDate'=> date('Y-m-d H:i:s', strtotime('-5 days')),
+                    'autoclose'=>true
+                ]
+            ]); ?>
         </div>
     </div>
 

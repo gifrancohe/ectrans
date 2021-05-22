@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?php if (!Yii::$app->user->isGuest): ?>
+    <?php if (!Yii::$app->user->isGuest && Yii::$app->user->identity->username == 'admin'): ?>
         <p>
             <?= Html::a(Yii::t('app', 'Actualizar'), ['update', 'idpayroll' => $model->idpayroll, 'driver_id' => $model->driver_id, 'car_id' => $model->car_id], ['class' => 'btn btn-primary']) ?>
         </p>
@@ -79,6 +79,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'other_description',
             'flypass_value',
+            'settlement_date',
             'created_at',
             'updated_at',
         ],

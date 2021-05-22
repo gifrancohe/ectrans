@@ -226,6 +226,7 @@ class PayrollController extends Controller
                             'Hora' => $payroll->hour,
                             'Tipo de pago' => $type_pay,
                             'Valor' => $payroll->value,
+                            'Fecha liquidación' => $payroll->settlement_date,
                             'Voucher' => $payroll->voucher,
                             'Gasto Parq' => $payroll->parking_value,
                             'Gasto gas' => $payroll->fuel_value,

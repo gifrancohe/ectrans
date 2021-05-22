@@ -17,6 +17,7 @@ use Yii;
  * @property string $to
  * @property int $type_pay
  * @property int $value
+ * @property string $settlement_date
  * @property string|null $voucher
  * @property int|null $parking_value
  * @property int|null $fuel_value
@@ -45,9 +46,9 @@ class Payroll extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['driver_id', 'car_id', 'km_initial', 'km_final', 'from', 'hour', 'to', 'type_pay', 'value'], 'required'],
+            [['driver_id', 'car_id', 'km_initial', 'km_final', 'from', 'hour', 'to', 'type_pay', 'value', 'settlement_date'], 'required'],
             [['driver_id', 'car_id', 'km_initial', 'km_final', 'type_pay', 'value', 'parking_value', 'fuel_value', 'others_value', 'flypass_value'], 'integer'],
-            [['hour', 'created_at', 'updated_at'], 'safe'],
+            [['hour', 'settlement_date', 'created_at', 'updated_at'], 'safe'],
             [['from'], 'string', 'max' => 150],
             [['to', 'voucher'], 'string', 'max' => 45],
             [['other_description'], 'string', 'max' => 250],
@@ -72,6 +73,7 @@ class Payroll extends \yii\db\ActiveRecord
             'hour' => Yii::t('app', 'Hora'),
             'type_pay' => Yii::t('app', 'Tipo de pago'),
             'value' => Yii::t('app', 'Valor'),
+            'settlement_date' => Yii::t('app', 'Fecha liquidación'),
             'voucher' => Yii::t('app', 'Voucher'),
             'parking_value' => Yii::t('app', 'Gasto parqueadero'),
             'fuel_value' => Yii::t('app', 'Gasto combustible'),

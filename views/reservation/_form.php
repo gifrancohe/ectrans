@@ -48,6 +48,14 @@ use kartik\date\DatePicker;
 
     <?= $form->field($model, 'passenger_number')->textInput() ?>
 
+    <?= $form->field($model, 'passenger_name')->textInput() ?>
+
+    <?= $form->field($model, 'passenger_cel')->textInput() ?>
+
+    <?= $form->field($model, 'flight_details')->textInput() ?>
+
+    <?= $form->field($model, 'comments')->textarea(['rows' => '6']) ?>
+
     <?php if($model->isNewRecord): ?>
           
         <?= $form->field($model, 'created_at')->hiddenInput(['value'=> date('Y-m-d H:i:s')])->label(false); ?>

@@ -17,7 +17,11 @@ use Yii;
  * @property int $reservation_status
  * @property string $contact_person
  * @property int $passenger_number
- * @property string|null $voucher
+ * @property string|null $voucher	
+ * @property string|null $passenger_name 
+ * @property string|null $passenger_cel 
+ * @property string|null $comments 
+ * @property string|null $flight_details 
  * @property string|null $created_at
  * @property string|null $updated_at
  *
@@ -44,7 +48,9 @@ class Reservation extends \yii\db\ActiveRecord
             [['reservation_date', 'created_at', 'updated_at'], 'safe'],
             [['from', 'to'], 'string', 'max' => 150],
             [['reservation_hour', 'voucher'], 'string', 'max' => 45],
-            [['contact_person'], 'string', 'max' => 250],
+            [['contact_person', 'passenger_name', 'flight_details'], 'string', 'max' => 250],
+            [['passenger_cel'], 'string', 'max' => 100],
+            [['comments'], 'string', 'max' => 500],
             [['customer_id'], 'exist', 'skipOnError' => true, 'targetClass' => Customer::className(), 'targetAttribute' => ['customer_id' => 'idcustomer']],
         ];
     }
@@ -66,6 +72,10 @@ class Reservation extends \yii\db\ActiveRecord
             'contact_person' => Yii::t('app', 'Persona responsable'),
             'passenger_number' => Yii::t('app', 'Nro de pasajeros'),
             'voucher' => Yii::t('app', 'Voucher'),
+            'passenger_name' => Yii::t('app', 'Nombre del pasajero'),
+            'passenger_cel' => Yii::t('app', 'Número de contacto'),
+            'comments' => Yii::t('app', 'Observaciones'),
+            'flight_details' => Yii::t('app', 'Nro vuelo / Aerolinea'),
             'created_at' => Yii::t('app', 'Creado en'),
             'updated_at' => Yii::t('app', 'Actualizado en'),
         ];
