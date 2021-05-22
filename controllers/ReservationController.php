@@ -175,14 +175,14 @@ class ReservationController extends Controller
                     ->all();
                 }
 
-                header('Content-Type: text/csv; charset=utf-8');
-                header('Content-Disposition: attachment; filename=reservaciones-' . date('Y-m-d-His', time() - 18000) . '.csv');
+                //header('Content-Type: text/csv; charset=utf-8');
+                //header('Content-Disposition: attachment; filename=reservaciones-' . date('Y-m-d-His', time() - 18000) . '.csv');
 
-                $archivo_salida = fopen('php://output', 'w');
+                //$archivo_salida = fopen('php://output', 'w');
 
                 if (!empty($reservations)) {
                     $campos = ['Id Reservación', 'Cliente', 'Desde', 'Hasta', 'Fecha reserva', 'Hora reserva' , 'Tipo de pago', 'Voucher', 'Estado reserva', 'Responsable reserva', 'Nro de pasajeros', 'Nombre pasajero', 'Contacto pasajero', 'Observaciones', 'Detalle vuelo', 'Creado en', 'Actualizado en'];
-                    fputcsv($archivo_salida, $campos, ';');
+                    //fputcsv($archivo_salida, $campos, ';');
                     foreach ($reservations as $reservation) {
                         if ($reservation->type_pay == 1) {
                             $type_pay = 'Efectivo';
@@ -192,7 +192,6 @@ class ReservationController extends Controller
                             $type_pay = 'Cuenta x Cobrar';
                         }
                         $status = $reservation->reservation_status == 1 ? 'Activa' : 'Inactiva';
-                        var_dump($resultado); exit;
                         $resultado = [
                             'Id Planilla' => $reservation->idreservation,
                             'Cliente' => $reservation->customer_id, 
@@ -213,9 +212,12 @@ class ReservationController extends Controller
                             'Creado en' => $reservation->created_at,
                             'Actualizado en' => $reservation->updated_at
                         ];
-                        fputcsv($archivo_salida, $resultado, ';');
+                        echo "<pre>";
+                        var_dump($resultado);
+                        echo "</pre>";
+                        //fputcsv($archivo_salida, $resultado, ';');
                     }
-                    fclose($archivo_salida);
+                    //fclose($archivo_salida);
                     Yii::$app->session->setFlash('success', "Reporte generado correctamente.");    
                     exit;
                 } else {
