@@ -14,8 +14,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
+    <p class="reservation-button-action">
         <?= Html::a(Yii::t('app', 'Crear Reservación'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Descargar reservas'), ['download'], ['class' => 'btn btn-success btn-home']) ?>
     </p>
 
     <?php Pjax::begin(); ?>

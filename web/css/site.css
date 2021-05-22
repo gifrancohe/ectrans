@@ -48,7 +48,7 @@ body {
     font-style: italic;
 }
 
-.payroll-button-action {
+.payroll-button-action, .reservation-button-action {
     display: flex;
     justify-content: space-between;
 }

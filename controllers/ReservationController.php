@@ -194,7 +194,7 @@ class ReservationController extends Controller
                         $status = $reservation->reservation_status == 1 ? 'Activa' : 'Inactiva';
                         $resultado = [
                             'Id reserva' => $reservation->idreservation,
-                            'Cliente' => $reservation->customer_id, 
+                            'Cliente' => $reservation->customer->trade_name, 
                             'Desde'  => $reservation->from,
                             'Hasta' => $reservation->to,
                             'Fecha reserva' => $reservation->reservation_date,
