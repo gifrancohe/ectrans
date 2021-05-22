@@ -31,7 +31,7 @@ class ReservationController extends Controller
             ],
             'access' => [
                 'class' => \yii\filters\AccessControl::className(),
-                'only' => ['index','create','update','view'],
+                'only' => ['index','update','view'],
                 'rules' => [
                     // allow authenticated users
                     [
