@@ -194,7 +194,7 @@ class ReservationController extends Controller
                         $status = $reservation->reservation_status == 1 ? 'Activa' : 'Inactiva';
                         $resultado = [
                             'Id Planilla' => $reservation->idreservation,
-                            'Cliente' => $reservation->customer->trade_name, 
+                            'Cliente' => $reservation->customer_id, 
                             'Desde'  => $reservation->from,
                             'Hasta' => $reservation->to,
                             'Fecha reserva' => $reservation->reservation_date,
@@ -212,8 +212,6 @@ class ReservationController extends Controller
                             'Creado en' => $reservation->created_at,
                             'Actualizado en' => $reservation->updated_at
                         ];
-                        var_dump($resultado); exit;
-        
                         fputcsv($archivo_salida, $resultado, ';');
                     }
                     fclose($archivo_salida);
