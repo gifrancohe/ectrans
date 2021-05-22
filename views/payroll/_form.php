@@ -89,8 +89,8 @@ use kartik\date\DatePicker;
             <?= $form->field($model, 'settlement_date')->widget(DatePicker::classname(), [
                 'options' => ['placeholder' => 'Ingrese la fecha a liquidar ...'],
                 'pluginOptions' => [
-                    'format' => 'yyyy-mm-dd H:i:s',
-                    'startDate'=> date('Y-m-d H:i:s', strtotime('-5 days')),
+                    'format' => 'yyyy-mm-dd',
+                    'startDate'=> date('Y-m-d', strtotime('-5 days')),
                     'autoclose'=>true
                 ]
             ]); ?>
