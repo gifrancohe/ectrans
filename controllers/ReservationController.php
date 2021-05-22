@@ -2,10 +2,6 @@
 
 namespace app\controllers;
 
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
-
 use Yii;
 use app\models\Reservation;
 use app\models\ReservationSearch;
@@ -216,6 +212,7 @@ class ReservationController extends Controller
                             'Creado en' => $reservation->created_at,
                             'Actualizado en' => $reservation->updated_at
                         ];
+                        var_dump($resultado); exit;
                         fputcsv($archivo_salida, $resultado, ';');
                     }
                     fclose($archivo_salida);
