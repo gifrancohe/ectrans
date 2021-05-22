@@ -175,12 +175,12 @@ class ReservationController extends Controller
                     ->all();
                 }
 
-                header('Content-Type: text/csv; charset=utf-8');
-                header('Content-Disposition: attachment; filename=reservaciones-' . date('Y-m-d-His', time() - 18000) . '.csv');
-
-                $archivo_salida = fopen('php://output', 'w');
-
                 if (!empty($reservations)) {
+                    
+                    header('Content-Type: text/csv; charset=utf-8');
+                    header('Content-Disposition: attachment; filename=reservaciones-' . date('Y-m-d-His', time() - 18000) . '.csv');
+
+                    $archivo_salida = fopen('php://output', 'w');
                     $campos = ['Id Reservación', 'Cliente', 'Desde', 'Hasta', 'Fecha reserva', 'Hora reserva' , 'Tipo de pago', 'Voucher', 'Estado reserva', 'Responsable reserva', 'Nro de pasajeros', 'Nombre pasajero', 'Contacto pasajero', 'Observaciones', 'Detalle vuelo', 'Creado en', 'Actualizado en'];
                     fputcsv($archivo_salida, $campos, ';');
                     foreach ($reservations as $reservation) {
