@@ -40,7 +40,7 @@ AppAsset::register($this);
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Iniciar sessión', 'url' => ['/site/login']];
-    } else {
+    } elseif (Yii::$app->user->identity->username == 'admin') {
         $menuItems[] = ['label' => 'Planillas', 'url' => ['/payroll/index']];
         $menuItems[] = ['label' => 'Conductores', 'url' => ['/driver/index']];
         $menuItems[] = ['label' => 'Automoviles', 'url' => ['/car/index']];
@@ -51,7 +51,9 @@ AppAsset::register($this);
             'url' => ['/site/logout'],
             'linkOptions' => ['data-method' => 'post']
         ];
-    } 
+    } else {
+        $menuItems[] = ['label' => 'Crear planilla', 'url' => ['/payroll/create']];
+    }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => $menuItems,
