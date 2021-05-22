@@ -173,7 +173,6 @@ class ReservationController extends Controller
                     $reservations = Reservation::find()
                     ->where(['>=', 'created_at', $date_from])
                     ->all();
-                    var_dump($reservations); exit;
                 }
 
                 header('Content-Type: text/csv; charset=utf-8');
@@ -213,6 +212,7 @@ class ReservationController extends Controller
                             'Creado en' => $reservation->created_at,
                             'Actualizado en' => $reservation->updated_at
                         ];
+                        var_dump($resultado); exit;
         
                         fputcsv($archivo_salida, $resultado, ';');
                     }
