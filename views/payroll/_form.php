@@ -16,6 +16,7 @@ use kartik\date\DatePicker;
 
     <div class="row">
         <div class="col-md-6">
+            <i class="fa fa-asterisk text-danger"></i>
             <?= $form->field($model, 'driver_id')->dropDownList($drivers,['prompt'=>'Seleccione un conductor']); ?>
         </div>
         <div class="col-md-6">
