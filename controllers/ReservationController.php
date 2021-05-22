@@ -214,7 +214,6 @@ class ReservationController extends Controller
                         fputcsv($archivo_salida, $resultado, ';');
                     }
                     fclose($archivo_salida);
-                    Yii::$app->session->setFlash('success', "Reporte generado correctamente.");    
                     exit;
                 } else {
                     Yii::$app->session->setFlash('error', "No se encontro información con los filtros aplicados.");    
