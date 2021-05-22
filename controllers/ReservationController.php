@@ -191,8 +191,7 @@ class ReservationController extends Controller
                         } else {
                             $type_pay = 'Cuenta x Cobrar';
                         }
-                        $status = $reservation->status == 1 ? 'Activa' : 'Inactiva';
-                        var_dump($reservation); exit;
+                        $status = $reservation->reservation_status == 1 ? 'Activa' : 'Inactiva';
                         $resultado = [
                             'Id Planilla' => $reservation->idreservation,
                             'Cliente' => $reservation->customer->trade_name, 
