@@ -175,14 +175,14 @@ class ReservationController extends Controller
                     ->all();
                 }
 
-                //header('Content-Type: text/csv; charset=utf-8');
-                //header('Content-Disposition: attachment; filename=reservaciones-' . date('Y-m-d-His', time() - 18000) . '.csv');
+                header('Content-Type: text/csv; charset=utf-8');
+                header('Content-Disposition: attachment; filename=reservaciones-' . date('Y-m-d-His', time() - 18000) . '.csv');
 
-                //$archivo_salida = fopen('php://output', 'w');
+                $archivo_salida = fopen('php://output', 'w');
 
                 if (!empty($reservations)) {
                     $campos = ['Id Reservación', 'Cliente', 'Desde', 'Hasta', 'Fecha reserva', 'Hora reserva' , 'Tipo de pago', 'Voucher', 'Estado reserva', 'Responsable reserva', 'Nro de pasajeros', 'Nombre pasajero', 'Contacto pasajero', 'Observaciones', 'Detalle vuelo', 'Creado en', 'Actualizado en'];
-                    //fputcsv($archivo_salida, $campos, ';');
+                    fputcsv($archivo_salida, $campos, ';');
                     foreach ($reservations as $reservation) {
                         if ($reservation->type_pay == 1) {
                             $type_pay = 'Efectivo';
@@ -193,7 +193,7 @@ class ReservationController extends Controller
                         }
                         $status = $reservation->reservation_status == 1 ? 'Activa' : 'Inactiva';
                         $resultado = [
-                            'Id Planilla' => $reservation->idreservation,
+                            'Id reserva' => $reservation->idreservation,
                             'Cliente' => $reservation->customer_id, 
                             'Desde'  => $reservation->from,
                             'Hasta' => $reservation->to,
@@ -202,7 +202,6 @@ class ReservationController extends Controller
                             'Tipo de pago' => $type_pay,
                             'Voucher' => $reservation->voucher,
                             'Estado reserva' => $status,
-                            'Fecha liquidación' => $reservation->settlement_date,
                             'Responsable reserva' => $reservation->contact_person,
                             'Nro de pasajeros' => $reservation->passenger_number, 
                             'Nombre pasajero' => $reservation->passenger_name, 
@@ -212,12 +211,9 @@ class ReservationController extends Controller
                             'Creado en' => $reservation->created_at,
                             'Actualizado en' => $reservation->updated_at
                         ];
-                        echo "<pre>";
-                        var_dump($resultado);
-                        echo "</pre>";
-                        //fputcsv($archivo_salida, $resultado, ';');
+                        fputcsv($archivo_salida, $resultado, ';');
                     }
-                    //fclose($archivo_salida);
+                    fclose($archivo_salida);
                     Yii::$app->session->setFlash('success', "Reporte generado correctamente.");    
                     exit;
                 } else {
